@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes" />
+	<title>퍼블소스정리</title>
+
+	<style type="text/css">
+		*{box-sizing:border-box}
+		body { font-family: '맑은 고딕', 'Malgun Gothic', '나눔고딕', 'NanumGothic', '돋움', dotum, Helvetica, sans-serif; font-size: 12px; line-height: 1.42857143; color: #333333; background-color: #ffffff; padding: 0;margin: 0;}
+		#container { margin: 0 auto; padding: 0 20px; }
+		.page_header { font-size: 14px; font-weight: normal; padding: 10px; }
+		#container_guide { width: 650px; }
+		.sec { padding-top: 30px; }
+		.sec.on .group_ex { display: block; }
+		.sec.on .caret { content: ""; border-top: 0; border-bottom: 4px solid; }
+		.page_header { margin-bottom: 15px; border-bottom: 1px solid #eee }
+		.group_ex { /*display:none;*/ border: 1px solid #ddd; }
+		.group_ex .ex_view { padding: 10px; border-bottom: 1px solid #ddd; }
+		.group_ex .ex_code { padding: 10px; background-color: #f7f7f9; }
+		.group_view { position: relative; }
+		input, textarea { color: #000; }
+		.placeholder { color: #ea0000; }
+		a{color:#666;}
+		table{width:800px;border-collapse:collapse;border-spacing:0;}
+		table caption{position:absolute;top:-2000px;left:-2000px;font-size:1px;text-indent:-2000px;}
+		table th, table td{padding:10px;border:1px solid #ddd;}
+		table thead th{background-color:#ecf0f1;border-bottom:none;}
+		table tbody th{background-color:#ecf0f1;text-align:left;}
+		table thead tr:nth-of-type(1) th{background: #2c3e50;color:#fff}
+		td:nth-of-type(1){text-align: center;}
+		.table_responsive{padding-bottom: 2%;width:100%;}
+		.pofol_menu{margin-bottom:10px;}
+		.pofol_menu a{display: inline-block;padding: 6px 11px;font-size: 14px;color:#333;border:1px solid #ccc;border-radius: 4px;text-decoration: none;}
+		.pofol_menu a:hover{background: #e6e6e6;border-color: #adadad;}
+		.pofol_menu a.current{color: #fff; background-color: #2c3e50; border-color: #2c3e50;font-weight: 600;}
+		@media screen and (max-width:979px){
+			.table_responsive{padding-bottom: 10%;}
+			table{width: 100%;}
+			th:nth-of-type(2),th:nth-of-type(4){display: none;}
+			td:nth-of-type(2),td:nth-of-type(4){display: none;}
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			//table 정렬
+			var $container = $('.tab_content');
+            $container.isotope({
+				filter:'*'
+            });
+
+            $('.pofol_menu a').on('click', function(){
+				$(this).addClass('current').siblings().removeClass();
+                var filterValue = $( this ).attr('data-filter');
+                $container.isotope({
+					filter: filterValue
+				});
+
+                return false;
+            });
+
+			//table 번호 매기기
+			var $table = $('.table_hover.table_condensed');
+			
+			$table.each(function(index){
+				var $tab1 = $table.eq(index).find('.tab1_no');
+				
+				$tab1.each(function(index){
+					$(this).text(index+1);
+				});
+			});
+	
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="container">
+			<h2 class="page_header clearfix">
+			<strong class="pull_left">퍼블소스정리</strong>
+			<span class="pull_right">2017.12~</span>
+		</h2>
+
+			<div>
+				<div class="pofol_menu">				
+					<a href="#" data-filter="*" class="current">All</a>
+					<a href="#" data-filter=".refrence">참조</a>
+					<a href="#" data-filter=".css">css</a>
+					<a href="#" data-filter=".jquery">jquery</a>
+					<a href="#" data-filter=".javascript">javascript</a>
+					<a href="#" data-filter=".php">php</a>
+				</div>
+				<div class="tab_content">
+					
+						<div class="table_wrap table_responsive refrence">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">참조</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>reference.html</td>
+										<td class="warning"><a href="reference.html" target="_blank">reference.html</a></td>
+										<td>reference.html</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>editplus4</td>
+										<td class="warning"><a href="./file/editplus4.7z" target="_blank">editplus4</a></td>
+										<td>editplus4(pw:1111)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>photoshopcs6_cr</td>
+										<td class="warning"><a href="./file/photoshopcs6.zip" target="_blank">photoshopcs6_cr</a></td>
+										<td>photoshopcs6_cr</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>비트버킷메뉴얼</td>
+										<td class="warning"><a href="./file/bitbucket_manual.xlsx" target="_blank">bitbucket_manual</a></td>
+										<td>bitbucket_manual</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table_wrap table_responsive css">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">reset</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>reset.css</td>
+										<td class="warning"><a href="css/reset.css" target="_blank">reset.css</a></td>
+										<td>reset.css</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>filepath.html</td>
+										<td class="warning"><a href="html/filepath.html" target="_blank">filepath.html</a></td>
+										<td>퍼블 산출물 리스트</td>
+									</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table_wrap table_responsive css">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">css</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>css_modal</td>
+										<td class="warning"><a href="html/css_modal.html" target="_blank">css_modal.html</a></td>
+										<td>css_modal</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>css_div_list</td>
+										<td class="warning"><a href="html/css_div_list.html" target="_blank">css_div_list.html</a></td>
+										<td>css_div_list</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>css_basic_layout</td>
+										<td class="warning"><a href="html/css_basic_layout.html" target="_blank">css_basic_layout.html</a></td>
+										<td>css_basic_layout(기본레이아웃 PC용)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>css_table_form</td>
+										<td class="warning"><a href="html/css_table_form.html" target="_blank">css_table_form.html</a></td>
+										<td>테이블 css 기본 샘플</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>css_animation(깜빡임,회전)</td>
+										<td class="warning"><a href="html/css_animation.html" target="_blank">css_animation.html</a></td>
+										<td>css 깜빡임, 회전</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table_wrap table_responsive jquery">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">jquery</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_탭</td>
+										<td class="warning"><a href="html/jquery_tab.html" target="_blank">jquery_tab.html</a></td>
+										<td>기본 jquery 탭</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_탭2</td>
+										<td class="warning"><a href="html/jquery_tab2.html" target="_blank">jquery_tab2.html</a></td>
+										<td>웹접근성 ul&lt;li jquery 탭</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_gnb</td>
+										<td class="warning"><a href="html/jquery_gnb_1.html" target="_blank">jquery_gnb_1.html</a></td>
+										<td>기본 jquery gnb 1depth메뉴별로 dropdown</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_gnb2</td>
+										<td class="warning"><a href="html/jquery_gnb_2.html" target="_blank">jquery_gnb_2.html</a></td>
+										<td>기본 jquery gnb 2depth 전체 dropdown</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_checkbox</td>
+										<td class="warning"><a href="html/jquery_checkbox.html" target="_blank">jquery_checkbox.html</a></td>
+										<td>jquery 체크박스 모두체크하는 플러그인</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_mobile_gnb_pop_left</td>
+										<td class="warning"><a href="html/jquery_mobile_gnb_pop_left.html" target="_blank">jquery_mobile_gnb_pop_left.html</a></td>
+										<td>jquery_mobile_gnb_pop(왼쪽 방향)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_mobile_gnb_pop_right</td>
+										<td class="warning"><a href="html/jquery_mobile_gnb_pop_right.html" target="_blank">jquery_mobile_gnb_pop_right.html</a></td>
+										<td>jquery_mobile_gnb_pop(오른쪽 방향)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_img_selectoption</td>
+										<td class="warning"><a href="html/jquery_img_selectoption.html" target="_blank">jquery_img_selectoption.html</a></td>
+										<td>jquery_img_selectoption</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_modal</td>
+										<td class="warning"><a href="html/jquery_modal.html" target="_blank">jquery_modal.html</a></td>
+										<td>jquery_modal(기존방식)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_modal2</td>
+										<td class="warning"><a href="html/jquery_modal2.html" target="_blank">jquery_modal2.html</a></td>
+										<td>jquery_modal2(플러그인방식)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_select_ul_li</td>
+										<td class="warning"><a href="html/jquery_select_ul_li.html" target="_blank">jquery_select_ul_li.html</a></td>
+										<td>jquery_select_ul_li - select모양 처럼 보이는 ul(family site)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_familysite</td>
+										<td class="warning"><a href="html/jquery_familysite.html" target="_blank">jquery_familysite.html</a></td>
+										<td>jquery_familysite - footer 기본 family_site</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_timer</td>
+										<td class="warning"><a href="html/jquery_timer.html" target="_blank">jquery_timer.html</a></td>
+										<td>jquery_timer - 연장기능 - 시간끝나면 페이지이동</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_tab_list_change</td>
+										<td class="warning"><a href="html/jquery_tab_list_change.html" target="_blank">jquery_tab_list_change.html</a></td>
+										<td>jquery_tab_list_change</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_datepicker_css.html</td>
+										<td class="warning"><a href="html/jquery_datepicker_css.html" target="_blank">jquery_datepicker_css.html</a></td>
+										<td>jquery_ui datepicker css 수정파일</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_simple_slide.html</td>
+										<td class="warning"><a href="html/jquery_simple_slide.html" target="_blank">jquery_simple_slide.html</a></td>
+										<td>간단 jquery 슬라이드</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_animation_slide.html</td>
+										<td class="warning"><a href="html/jquery_animation_slide.html" target="_blank">jquery_animation_slide.html</a></td>
+										<td>jquery 재생, 정지 슬라이드</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_gotop.html</td>
+										<td class="warning"><a href="html/jquery_gotop.html" target="_blank">jquery_gotop.html</a></td>
+										<td>jquery 맨위로 가기 버튼</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_isotpesample.html</td>
+										<td class="warning"><a href="html/jquery_isotpesample.html" target="_blank">jquery_isotpesample.html</a></td>
+										<td>포트폴리오용 메뉴 전환 샘플(isotpe)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_menuActive.html</td>
+										<td class="warning"><a href="html/jquery_menuActive.html" target="_blank">jquery_menuActive.html</a></td>
+										<td>스크롤 위치에 따라 탑메뉴 활성화</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_chartjs.html</td>
+										<td class="warning"><a href="html/jquery_chartjs.html" target="_blank">jquery_chartjs.html</a></td>
+										<td>chartjs 기본 샘플</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_qna(accodion).html</td>
+										<td class="warning"><a href="html/jquery_qna.html" target="_blank">jquery_qna.html</a></td>
+										<td>jquery_qna 아코디엔 기본 샘플, lnb</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_input_onlyNumber.html</td>
+										<td class="warning"><a href="html/jquery_inputNumberonly.html" target="_blank">jquery_onlyNumber.html</a></td>
+										<td>jquery_input text 숫자만 입력받기, radio value 값 더하기</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>jquery_scroll_fade.html</td>
+										<td class="warning"><a href="html/jquery_scroll_fade.html" target="_blank">jquery_scroll_fade.html</a></td>
+										<td>jquery_scroll_fade 제자리, 아래</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table_wrap table_responsive javascript">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">javascript</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>javascript</td>
+										<td class="warning"><a href="html/javascript.html" target="_blank">javascript.html</a></td>
+										<td>(pc, 모바일 기기체크), (숫자 , 넣기)</td>
+									</tr>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>javascript2</td>
+										<td class="warning"><a href="html/javascript2.html" target="_blank">javascript2.html</a></td>
+										<td>input checkbox 모두 체크 기능, input radio 다시 누를시 선택해제</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="table_wrap table_responsive php">
+							<table class="table table_hover table_condensed">
+								<caption class="sr_only">no,depth1,depth2,depth3,etc 정보제공</caption>
+								<thead>
+									<tr class="">
+										<th scope="col" colspan="6">php</th>
+									</tr>
+									<tr class="">
+										<th scope="col">no</th>
+										<th scope="col">depth1</th>
+										<th scope="col" class="warning">url</th>
+										<th scope="col">etc</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td class="tab1_no"></td>
+										<td>php_ajaxmore</td>
+										<td class="warning"><a href="html/ajax_more/index.php" target="_blank">ajax_more.php</a></td>
+										<td>php 더보기 샘플 ajax</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
