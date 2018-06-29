@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        ul,li {list-style: none;}
+        .accard-detail {display: none;}
+    </style>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        //accard detail slide up/down
+        $(function accardList(){
+            $('.accard-list .accard').on('click', function(){
+                var $item = $(this).closest('li');
+                var $target = $item.find('.accard-detail');
+            
+                if( $item.hasClass('active') ) {
+                    $item.removeClass('active');
+                    $target.stop().slideUp('fast');
+                } else {
+                    $item.addClass('active');
+                    $target.stop().slideDown('fast');
+                }
+            
+                $item.siblings().removeClass('active');
+                $item.siblings().find('.accard-detail').stop().slideUp('fast');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="accard-list">
+        <ul>
+            <li>
+                <div class="accard">
+                    header
+                </div>
+                <div class="accard-detail">
+                    body
+                </div>
+            </li>
+            <li>
+                <div class="accard">
+                    header
+                </div>
+                <div class="accard-detail">
+                    body
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
