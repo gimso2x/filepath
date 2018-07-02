@@ -7,18 +7,15 @@
     <title>jquery_modal</title>
     <link rel="stylesheet" href="../css/reset.css">
     <style>
-        .dim_layerpop {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9999;}
-        .dim_layerpop .dimBg_layerpop {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #000;opacity: .5;}
         .pop-layer {
           display: none;
-          position: absolute;
+          position: fixed;
           top: 50%;
           left: 50%;
           width: 350px;
-          height: auto;
           background-color: #fff;
           border: 1px solid #3a3f4c;
-          z-index: 9998;
+          z-index: 10001;
         }
     </style>
 
@@ -48,7 +45,12 @@
 
                 function layer_popup(el) {
                     var _el = $(el); //레이어의 id를 _el 변수에 저장
-                    $('.dim_layerpop').fadeIn();
+                    $('body').append('<div class="dimBg_layerpop"></div>');
+                    var dimLayer = $('.dimBg_layerpop');
+                    dimLayer.css({
+                        'display':'none','position' : 'fixed','left' : 0, 'right' : 0, 'top' : 0, 'bottom' : 0,'background' : '#000', 'z-index' : 9999,'opacity': '0.5'
+                    });
+                    dimLayer.fadeIn();
                     _el.fadeIn();
                     $('body').css({
                         overflow: 'hidden'
@@ -70,11 +72,11 @@
                     }
 
                     _el.find('.btn_close').click(function () { pop_close(); });
-                    $('.dim_layerpop .dimBg_layerpop').click(function () { pop_close(); });
+                    dimLayer.click(function () { pop_close(); });
                 }
 
                 function pop_close() {
-                    $('.dim_layerpop').fadeOut();
+                    $('.dimBg_layerpop').fadeOut().remove();
                     $(_href).fadeOut();
                     $('body').css({
                         overflow: 'visible'
@@ -94,41 +96,38 @@
     </div>
 
     <!-- 레이어 팝업-->
-    <div class="dim_layerpop">
-        <div class="dimBg_layerpop"></div>
-        <div id="layer" class="pop-layer">
-            <div class="pop-container">
-                <a href="javascript:void(0);" class="btn_close">닫기</a>
-                <div class="pop-header">
-                    레이어1 헤더
-                </div>
-                <div class="pop-conts">
-                    레이어1 내용
-                </div>
+    <div id="layer" class="pop-layer">
+        <div class="pop-container">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-header">
+                레이어1 헤더
+            </div>
+            <div class="pop-conts">
+                레이어1 내용
             </div>
         </div>
+    </div>
 
-        <div id="layer2" class="pop-layer">
-            <div class="pop-container">
-                <a href="javascript:void(0);" class="btn_close">닫기</a>
-                <div class="pop-header">
-                    레이어2 헤더
-                </div>
-                <div class="pop-conts">
-                    레이어2 내용
-                </div>
+    <div id="layer2" class="pop-layer">
+        <div class="pop-container">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-header">
+                레이어2 헤더
+            </div>
+            <div class="pop-conts">
+                레이어2 내용
             </div>
         </div>
+    </div>
 
-        <div id="layer3" class="pop-layer">
-            <div class="pop-container">
-                <a href="javascript:void(0);" class="btn_close">닫기</a>
-                <div class="pop-header">
-                    레이어3 헤더
-                </div>
-                <div class="pop-conts">
-                    레이어3 내용
-                </div>
+    <div id="layer3" class="pop-layer">
+        <div class="pop-container">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-header">
+                레이어3 헤더
+            </div>
+            <div class="pop-conts">
+                레이어3 내용
             </div>
         </div>
     </div>
