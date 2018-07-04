@@ -46,32 +46,32 @@
 	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 	<script type="text/javascript">
-		$(function() {
+		$(function () {
 			//table 정렬
 			var $container = $('.tab_content');
-            $container.isotope({
-				filter:'*'
-            });
+			$container.isotope({
+				filter: '*'
+			});
 
-            $('.pofol_menu a').on('click', function(){
+			$('.pofol_menu a').on('click', function () {
 				$(this).addClass('current').siblings().removeClass();
-                var filterValue = $( this ).attr('data-filter');
-                $container.isotope({
+				var filterValue = $(this).attr('data-filter');
+				$container.isotope({
 					filter: filterValue
 				});
 
-                return false;
-            });
+				return false;
+			});
 
 			//table 번호 매기기
 			var $table = $('.table_hover.table_condensed');
-			
-			$table.each(function(index){
+
+			$table.each(function (index) {
 				var $tab1 = $table.eq(index).find('.tab1_no');
 				$(this).find('.tr_tit th').append(" (" + $tab1.length + ")");
-				
-				$tab1.each(function(index){
-					$(this).text(index+1);
+
+				$tab1.each(function (index) {
+					$(this).text(index + 1);
 				});
 			});
 
@@ -117,13 +117,13 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>reference.html</td>
-										<td class="warning"><a href="refrence/reference.html" target="_blank">reference.html</a></td>
+										<td class="warning"><a href="refrence/reference.html" >reference.html</a></td>
 										<td>reference.html</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>비트버킷메뉴얼</td>
-										<td class="warning"><a href="refrence/bitbucket_manual.xlsx" target="_blank">bitbucket_manual</a></td>
+										<td class="warning"><a href="refrence/bitbucket_manual.xlsx" >bitbucket_manual</a></td>
 										<td>bitbucket_manual</td>
 									</tr>
 								</tbody>
@@ -149,13 +149,13 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>reset.css</td>
-										<td class="warning"><a href="css/reset.css" target="_blank">reset.css</a></td>
+										<td class="warning"><a href="css/reset.css" >reset.css</a></td>
 										<td>reset.css</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>filepath.html</td>
-										<td class="warning"><a href="html/filepath.html" target="_blank">filepath.html</a></td>
+										<td class="warning"><a href="html/filepath.html" >filepath.html</a></td>
 										<td>퍼블 산출물 리스트</td>
 									</tr>
 
@@ -183,37 +183,37 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_modal</td>
-										<td class="warning"><a href="html_css/css_modal.html" target="_blank">css_modal.html</a></td>
+										<td class="warning"><a href="html_css/css_modal.html" >css_modal.html</a></td>
 										<td>css_modal</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_div_list</td>
-										<td class="warning"><a href="html_css/css_div_list.html" target="_blank">css_div_list.html</a></td>
+										<td class="warning"><a href="html_css/css_div_list.html" >css_div_list.html</a></td>
 										<td>css_div_list</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_basic_layout</td>
-										<td class="warning"><a href="html/css_basic_layout.html" target="_blank">css_basic_layout.html</a></td>
+										<td class="warning"><a href="html/css_basic_layout.html" >css_basic_layout.html</a></td>
 										<td>css_basic_layout(기본레이아웃 PC용)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_table_form</td>
-										<td class="warning"><a href="html_css/css_table_form.html" target="_blank">css_table_form.html</a></td>
+										<td class="warning"><a href="html_css/css_table_form.html" >css_table_form.html</a></td>
 										<td>테이블 css 기본 샘플</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_animation(깜빡임,회전)</td>
-										<td class="warning"><a href="html_css/css_animation.html" target="_blank">css_animation.html</a></td>
+										<td class="warning"><a href="html_css/css_animation.html" >css_animation.html</a></td>
 										<td>css 깜빡임, 회전</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>css_img 체크박스, 라디오박스</td>
-										<td class="warning"><a href="html_css/css_img_input.html" target="_blank">css_img_input.html</a></td>
+										<td class="warning"><a href="html_css/css_img_input.html" >css_img_input.html</a></td>
 										<td>css_img 체크박스, 라디오박스</td>
 									</tr>
 								</tbody>
@@ -239,157 +239,157 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_탭</td>
-										<td class="warning"><a href="html_jquery/jquery_tab.html" target="_blank">jquery_tab.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_tab.html" >jquery_tab.html</a></td>
 										<td>기본 jquery 탭</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_탭2</td>
-										<td class="warning"><a href="html_jquery/jquery_tab2.html" target="_blank">jquery_tab2.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_tab2.html" >jquery_tab2.html</a></td>
 										<td>웹접근성 ul&lt;li jquery 탭</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_gnb</td>
-										<td class="warning"><a href="html_jquery/jquery_gnb_1.html" target="_blank">jquery_gnb_1.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_gnb_1.html" >jquery_gnb_1.html</a></td>
 										<td>기본 jquery gnb 1depth메뉴별로 dropdown</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_gnb2</td>
-										<td class="warning"><a href="html_jquery/jquery_gnb_2.html" target="_blank">jquery_gnb_2.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_gnb_2.html" >jquery_gnb_2.html</a></td>
 										<td>기본 jquery gnb 2depth 전체 dropdown</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_checkbox</td>
-										<td class="warning"><a href="html_jquery/jquery_checkbox.html" target="_blank">jquery_checkbox.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_checkbox.html" >jquery_checkbox.html</a></td>
 										<td>jquery 체크박스 모두체크하는 플러그인</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_mobile_gnb_pop_left</td>
-										<td class="warning"><a href="html_jquery/jquery_mobile_gnb_pop_left.html" target="_blank">jquery_mobile_gnb_pop_left.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_mobile_gnb_pop_left.html" >jquery_mobile_gnb_pop_left.html</a></td>
 										<td>jquery_mobile_gnb_pop(왼쪽 방향)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_mobile_gnb_pop_right</td>
-										<td class="warning"><a href="html_jquery/jquery_mobile_gnb_pop_right.html" target="_blank">jquery_mobile_gnb_pop_right.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_mobile_gnb_pop_right.html" >jquery_mobile_gnb_pop_right.html</a></td>
 										<td>jquery_mobile_gnb_pop(오른쪽 방향)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_img_selectoption</td>
-										<td class="warning"><a href="html_jquery/jquery_img_selectoption.html" target="_blank">jquery_img_selectoption.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_img_selectoption.html" >jquery_img_selectoption.html</a></td>
 										<td>jquery_img_selectoption</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_modal</td>
-										<td class="warning"><a href="html_jquery/jquery_modal.html" target="_blank">jquery_modal.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_modal.html" >jquery_modal.html</a></td>
 										<td>jquery_modal(기존방식)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_modal2</td>
-										<td class="warning"><a href="html_jquery/jquery_modal2.html" target="_blank">jquery_modal2.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_modal2.html" >jquery_modal2.html</a></td>
 										<td>jquery_modal2(플러그인방식)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_modal3</td>
-										<td class="warning"><a href="html_jquery/jquery_modal3.html" target="_blank">jquery_modal3.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_modal3.html" >jquery_modal3.html</a></td>
 										<td>jquery_modal3(최종)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_select_ul_li</td>
-										<td class="warning"><a href="html_jquery/jquery_select_ul_li.html" target="_blank">jquery_select_ul_li.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_select_ul_li.html" >jquery_select_ul_li.html</a></td>
 										<td>jquery_select_ul_li - select모양 처럼 보이는 ul(family site)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_familysite</td>
-										<td class="warning"><a href="html_jquery/jquery_familysite.html" target="_blank">jquery_familysite.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_familysite.html" >jquery_familysite.html</a></td>
 										<td>jquery_familysite - footer 기본 family_site</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_timer</td>
-										<td class="warning"><a href="html_jquery/jquery_timer.html" target="_blank">jquery_timer.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_timer.html" >jquery_timer.html</a></td>
 										<td>jquery_timer - 연장기능 - 시간끝나면 페이지이동</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_tab_list_change</td>
-										<td class="warning"><a href="html_jquery/jquery_tab_list_change.html" target="_blank">jquery_tab_list_change.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_tab_list_change.html" >jquery_tab_list_change.html</a></td>
 										<td>jquery_tab_list_change</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_datepicker_css.html</td>
-										<td class="warning"><a href="html_jquery/jquery_datepicker_css.html" target="_blank">jquery_datepicker_css.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_datepicker_css.html" >jquery_datepicker_css.html</a></td>
 										<td>jquery_ui datepicker css 수정파일</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_simple_slide.html</td>
-										<td class="warning"><a href="html_jquery/jquery_simple_slide.html" target="_blank">jquery_simple_slide.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_simple_slide.html" >jquery_simple_slide.html</a></td>
 										<td>간단 jquery 슬라이드</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_animation_slide.html</td>
-										<td class="warning"><a href="html_jquery/jquery_animation_slide.html" target="_blank">jquery_animation_slide.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_animation_slide.html" >jquery_animation_slide.html</a></td>
 										<td>jquery 재생, 정지 슬라이드</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_gotop.html</td>
-										<td class="warning"><a href="html_jquery/jquery_gotop.html" target="_blank">jquery_gotop.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_gotop.html" >jquery_gotop.html</a></td>
 										<td>jquery 맨위로 가기 버튼</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_isotpesample.html</td>
-										<td class="warning"><a href="html_jquery/jquery_isotpesample.html" target="_blank">jquery_isotpesample.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_isotpesample.html" >jquery_isotpesample.html</a></td>
 										<td>포트폴리오용 메뉴 전환 샘플(isotpe)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_menuActive.html</td>
-										<td class="warning"><a href="html_jquery/jquery_menuActive.html" target="_blank">jquery_menuActive.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_menuActive.html" >jquery_menuActive.html</a></td>
 										<td>스크롤 위치에 따라 탑메뉴 활성화</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_chartjs.html</td>
-										<td class="warning"><a href="html_jquery/jquery_chartjs.html" target="_blank">jquery_chartjs.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_chartjs.html" >jquery_chartjs.html</a></td>
 										<td>chartjs 기본 샘플</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_qna(accodion).html</td>
-										<td class="warning"><a href="html_jquery/jquery_qna.html" target="_blank">jquery_qna.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_qna.html" >jquery_qna.html</a></td>
 										<td>jquery_qna 아코디엔 기본 샘플, lnb</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_qna(accodion2.html</td>
-										<td class="warning"><a href="html_jquery/jquery_qna2.html" target="_blank">jquery_qna2.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_qna2.html" >jquery_qna2.html</a></td>
 										<td>jquery_qna2 아코디엔 기본 샘플</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_input_onlyNumber.html</td>
-										<td class="warning"><a href="html_jquery/jquery_inputNumberonly.html" target="_blank">jquery_onlyNumber.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_inputNumberonly.html" >jquery_onlyNumber.html</a></td>
 										<td>jquery_input text 숫자만 입력받기, radio value 값 더하기</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>jquery_scroll_fade.html</td>
-										<td class="warning"><a href="html_jquery/jquery_scroll_fade.html" target="_blank">jquery_scroll_fade.html</a></td>
+										<td class="warning"><a href="html_jquery/jquery_scroll_fade.html" >jquery_scroll_fade.html</a></td>
 										<td>jquery_scroll_fade 제자리, 아래</td>
 									</tr>
 								</tbody>
@@ -415,13 +415,13 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>javascript</td>
-										<td class="warning"><a href="html_javascript/javascript.html" target="_blank">javascript.html</a></td>
+										<td class="warning"><a href="html_javascript/javascript.html" >javascript.html</a></td>
 										<td>(pc, 모바일 기기체크), (숫자 , 넣기)</td>
 									</tr>
 									<tr>
 										<td class="tab1_no"></td>
 										<td>javascript2</td>
-										<td class="warning"><a href="html_javascript/javascript2.html" target="_blank">javascript2.html</a></td>
+										<td class="warning"><a href="html_javascript/javascript2.html" >javascript2.html</a></td>
 										<td>input checkbox 모두 체크 기능, input radio 다시 누를시 선택해제</td>
 									</tr>
 								</tbody>
@@ -447,7 +447,7 @@
 									<tr>
 										<td class="tab1_no"></td>
 										<td>php_ajaxmore</td>
-										<td class="warning"><a href="html/ajax_more/index.php" target="_blank">ajax_more.php</a></td>
+										<td class="warning"><a href="html/ajax_more/index.php" >ajax_more.php</a></td>
 										<td>php 더보기 샘플 ajax</td>
 									</tr>
 								</tbody>

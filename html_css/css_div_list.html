@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>css_div_list</title>
     <style>
-        *{ margin: 0; padding: 0; box-sizing: border-box; }
-        ul,li{list-style: none;}
-
-        .wrap{width: 600px;margin: 0 auto; overflow: hidden;}
-        ul{background: black;margin:-10px;}
-        ul::after{content:'';clear: both;display: block;}
-        li{float:left;width:25%;padding: 10px;}
-        li>div{background: red;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ul, li { list-style: none; }
+    
+    .wrap { width: 600px; margin: 0 auto; overflow: hidden; }
+    ul { background: black; margin: -10px; }
+    ul::after { content: ''; clear: both; display: block; }
+    li { float: left; width: 25%; padding: 10px; }
+    li>div { background: red; }
     </style>
 </head>
+
 <body>
+    <!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
     <div class="wrap">
         <ul>
             <li>
@@ -40,4 +46,5 @@
         </ul>
     </div>
 </body>
+
 </html>

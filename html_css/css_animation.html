@@ -2,72 +2,66 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>css_div_list</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-		
-/*		//무한깜빡이*/
-		.scroll_area>div{width: 50px;height: 50px;}
-        .scroll_area .scroll_l {
-/*            position: absolute;*/
-/*            left: 0;*/
-/*            bottom: 10px;*/
-/*            transition-delay: .5s;*/
-            -webkit-animation: scroll 1s ease  infinite;
-            -moz-animation: scroll 1s ease  infinite;
-            animation: scroll 1s ease  infinite;
-            display: block;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>css_div_list</title>
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+
+		/*무한깜빡이*/
+
+		.scroll_area>div { width: 50px; height: 50px; }
+
+		.scroll_area .scroll_l {
+			/*            position: absolute;*/
+			/*            left: 0;*/
+			/*            bottom: 10px;*/
+			/*            transition-delay: .5s;*/
+			-webkit-animation: scroll 1s ease infinite;
+			-moz-animation: scroll 1s ease infinite;
+			animation: scroll 1s ease infinite;
+			display: block;
 			background: red;
-        }
+		}
 
-        .scroll_area .scroll_s {
-/*            position: absolute;*/
-/*            left: 0px;*/
-/*            bottom: 0px;*/
-            transition-delay: .5s;
-            -webkit-animation: scroll 1s ease .2s infinite;
-            -moz-animation: scroll 1s ease .2s infinite;
-            animation: scroll 1s ease .2s infinite;
-            display: block;
+		.scroll_area .scroll_s {
+			/*            position: absolute;*/
+			/*            left: 0px;*/
+			/*            bottom: 0px;*/
+			transition-delay: .5s;
+			-webkit-animation: scroll 1s ease .2s infinite;
+			-moz-animation: scroll 1s ease .2s infinite;
+			animation: scroll 1s ease .2s infinite;
+			display: block;
 			background: blue;
-        }
+		}
 
-        @-webkit-keyframes scroll {
-            0% {opacity: 0;}
-            50% {opacity: 1;}
-            100% {opacity: 0;}
-        }
+		@-webkit-keyframes scroll { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 
-        @keyframes scroll {
-            0% {opacity: 0;}
-            50% {opacity: 1;}
-            100% {opacity: 0;}
-        }
+		@keyframes scroll { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 
-/*		회전*/
-		.area{background: gold;width: 50px;height: 50px}
-		.area{
-    -webkit-animation: spin 4s linear;
-    -moz-animation: spin 4s linear;
-    animation: spin 4s linear;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(720deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(720deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(720deg); transform:rotate(720deg); } }
-    </style>
+		/*회전*/
+
+		.area { background: gold; width: 50px; height: 50px }
+
+		.area { -webkit-animation: spin 4s linear; -moz-animation: spin 4s linear; animation: spin 4s linear; }
+
+		@-moz-keyframes spin { 100% { -moz-transform: rotate(720deg); } }
+
+		@-webkit-keyframes spin { 100% { -webkit-transform: rotate(720deg); } }
+
+		@keyframes spin { 100% { -webkit-transform: rotate(720deg); transform: rotate(720deg); } }
+	</style>
 </head>
 
 <body>
-    <h1>무한깜빡이</h1>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;">INDEX</a>
+	<!-- // historyBack -->
+	<h1>무한깜빡이</h1>
 	<div class="scroll_area">
-		<div class="scroll_l">		
+		<div class="scroll_l">
 		</div>
 		<div class="scroll_s">
 		</div>
