@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;box-sizing:border-box;}
+		table{border-collapse:collapse;}
+		table th, table td{border:1px solid gray;padding:10px;}
+		input{width:100%;}
+
+		/* input+버튼 */
+		.input_tbl{display:table;width:100%;}
+		.input_col{display: table-cell;}
+		.col_aside{width:1%;white-space:nowrap;padding-left:3px;}
+		.contents .input_col input{text-align:right;}
+	</style>
+</head>
+<body>
+	<h1>input 100%일 때 옆에 %,나 원 넣기</h1>
+	<table>
+		<tbody>
+			<tr>
+				<th>번호</th>
+				<td>
+					<div class="input_tbl">
+						<div class="input_col">
+							<input type="text">
+						</div>
+						<div class="col_aside">
+							원
+						</div>
+					</div>
+				</td>
+				<th>이름</th>
+				<td>
+					<div class="input_tbl">
+						<div class="input_col">
+							<input type="text">
+						</div>
+						<div class="col_aside">
+							개월
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>내용1</th>
+				<td>
+					<div class="input_tbl">
+						<div class="input_col">
+							<input type="text">
+						</div>
+						<div class="col_aside">
+							%
+						</div>
+					</div>
+				</td>
+				<th>내용2</th>
+				<td>
+					<div class="input_tbl">
+						<div class="input_col">
+							<input type="text">
+						</div>
+						<div class="col_aside">
+							%%
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
