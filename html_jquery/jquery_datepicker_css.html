@@ -138,7 +138,7 @@
             display: inline-block;
             font-weight: bold;
             text-align: center;
-            width: 30px;
+            width: 100%;
             height: 30px;
             line-height: 30px;
             color: #666666;
@@ -184,22 +184,24 @@
         }
 
         .ui-datepicker-calendar td:first-child .ui-state-active {
-            width: 29px;
+            width: 100%;
             margin-left: 0;
         }
 
         .ui-datepicker-calendar td:last-child .ui-state-active {
-            width: 29px;
+            width: 100%;
             margin-right: 0;
         }
 
         .ui-datepicker-calendar tr:last-child .ui-state-active {
-            height: 29px;
+            height: 100%;
             margin-bottom: 0;
         }
     </style>
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="../js/jquery_monthpicker.js"></script>
+  
     <script>
         $(function () {
             //달력
@@ -207,22 +209,13 @@
             $(".datepicker").datepicker();
 
             // datepicker_month
-        $('.datepicker_month').datepicker( {
-	        changeMonth: true,
-	        changeYear: true,
-	        showButtonPanel: true,
-	        dateFormat: 'yy-mm',
-	        yearSuffix: '',
-	        currentText: "이번달",
-	        closeText: "선택",
-	        beforeShow: function(input, inst) {
-	        	$('#ui-datepicker-div').addClass("month");
-	        },
-	        onClose: function(dateText, inst) {
-	        	$('#ui-datepicker-div').removeClass("month");
-	            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
-	        }
-	    });
+            $(".datepicker_month").monthpicker({
+                dateFormat: 'yy-mm',
+                prevText: '이전',
+                nextText: '다음',
+                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+            });
         });
 
         // 달력
@@ -240,6 +233,8 @@
                 yearSuffix: '년'
             });
         }
+
+        
     </script>
 </head>
 
@@ -250,6 +245,7 @@
 
     <input type="text" class="datepicker">
     <input type="text" class="datepicker_month">
+   
 </body>
 
 </html>
