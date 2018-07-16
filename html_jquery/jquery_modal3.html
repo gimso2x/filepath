@@ -13,7 +13,7 @@
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script>
-        $(function () {
+        $(document).ready(function() {
             $(document).on('click', '.pop_button', function () {
                 $.popLayer.open($(this).attr('href'));
             });
