@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jquery_modal</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>        
+        .dimBg_layerpop {display: none;position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: .5; filter: alpha(opacity=50); z-index:9;}
+
+        .pop-layer {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 350px;
+          height: auto;
+          background-color: #fff;
+          border: 1px solid #3a3f4c;
+          z-index: 10;
+        }
+        .ov-hidden {overflow:hidden;}
+        #layer2 {width: 200px;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // 레이어 팝업
+            // $('.pop_button').click(function (e) {
+            //     e.preventDefault();
+            //     var $href = $(this).attr('href');
+            //     layer_popup($href);
+            // });
+        }); // end ready
+
+        var zidx = 9;
+        var pzidx = 10;
+        function layer_popup(el) {
+            $('body').addClass("ov-hidden");
+            var $el = $(el); //레이어의 id를 $el 변수에 저장
+
+            $($el).closest('.layer_wrap').append('<div class="dimBg_layerpop"></div>');
+            var dimLayer = $('.dimBg_layerpop');
+            dimLayer.css({'display': 'none', 'position': 'fixed', 'left': 0, 'right': 0, 'top': 0, 'bottom': 0, 'background': 'rgba(0,0,0,0.5)', 'z-index': 9,
+            });
+            $('.dimBg_layerpop').fadeIn();
+            zidx = Number(zidx) + 10;
+            pzidx = Number(pzidx) + 10;
+            $($el).next('.dimBg_layerpop').css("z-index", zidx);
+            $($el).css('z-index', pzidx);
+
+            $el.fadeIn();
+
+            var $elWidth = $el.outerWidth(), $elHeight = $el.outerHeight(), docWidth = $(document).width(), docHeight = $(document).height();
+
+            // 화면의 중앙에 레이어를 띄운다.
+            if ($elHeight < docHeight || $elWidth < docWidth) {
+                $el.css({marginTop: -$elHeight / 2, marginLeft: -$elWidth / 2})
+            } else {
+                $el.css({top: 0, left: 0});
+            }
+
+            $el.find('.btn_close').click(function (e) {
+                e.preventDefault();
+                pop_close();
+            });
+
+            // 배경화면 클릭시 레이어팝업 삭제
+            // $('.dimBg_layerpop').click(function () {
+            //     pop_close();
+            // });
+
+            function pop_close() {
+                $el.next('.dimBg_layerpop').fadeOut().remove();
+                $el.fadeOut();
+                if ($('.dimBg_layerpop').length < 1) {
+                    $('body').removeClass('ov-hidden');
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- historyBack *단일페이지 이용 시삭제필요 -->
+    <a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+    <!-- // historyBack -->
+
+    <div class="wrap">
+        <a href="javascript:void(0);" class="pop_button" onclick="layer_popup('#layer');">팝업레이어</a>
+        <a href="javascript:void(0);" class="pop_button" onclick="layer_popup('#layer2');">팝업레이어2</a>
+        <a href="javascript:void(0);" class="pop_button" onclick="layer_popup('#layer3');">팝업레이어3</a>
+    </div>
+
+    <!-- 레이어 팝업-->
+    <!-- <div class="dimBg_layerpop"></div> -->
+    <div class="layer_wrap">
+        <div id="layer" class="pop-layer">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-container">
+                <div class="pop-header">
+                    레이어1 헤더
+                </div>
+                <div class="pop-conts">
+                    레이어1 내용<a href="javascript:void(0);" class="pop_button" onclick="layer_popup('#layer2');">팝업레이어2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layer_wrap">
+        <div id="layer2" class="pop-layer">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-container">
+
+                <div class="pop-header">
+                    레이어2 헤더
+                </div>
+                <div class="pop-conts">
+                    레이어2 내용
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layer_wrap">
+        <div id="layer3" class="pop-layer">
+            <a href="javascript:void(0);" class="btn_close">닫기</a>
+            <div class="pop-container">
+
+                <div class="pop-header">
+                    레이어3 헤더
+                </div>
+                <div class="pop-conts">
+                    레이어3 내용
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// 레이어 팝업-->
+</body>
+
+</html>
