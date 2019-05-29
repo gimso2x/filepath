@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jquery_tab</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+		*{margin: 0;padding: 0;}
+		ul, li {list-style: none;}
+		.tabs li a.on {color: gold;}
+		.tab_contents {display: none;}
+		.tab_contents.on {display: block;}
+	</style>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+			var $tabMenu = $('.tabs li a');
+			var $tabContent = $('.tab_contents');
+
+			$tabMenu.on('click', function(e) {
+				e.preventDefault();
+				var idx = $tabMenu.index(this);
+				
+				$(this).addClass('on').closest('li').siblings().children('a').removeClass('on');
+				$tabContent.eq(idx).addClass('on').siblings().removeClass('on');
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
+	<ul class="tabs">
+		<li><a href="#tab1" class="on">탭1</a></li>
+		<li><a href="#tab2">탭2</a></li>
+		<li><a href="#tab3">탭3</a></li>
+		<li><a href="#tab4">탭4</a></li>
+	</ul>
+
+	<div class="tab_contents on">
+		탭컨텐츠1
+	</div>
+	<div class="tab_contents">
+		탭컨텐츠2		
+	</div>
+	<div class="tab_contents">
+		탭컨텐츠3
+	</div>
+	<div class="tab_contents">
+		탭컨텐츠4
+	</div>
+</body>
+
+</html>
