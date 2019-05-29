@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		header {position: fixed;width: 100%;background: #000;height: 50px;}
+		.gnb::after {content: '';display: block;clear: both;}
+		.gnb li {float: left;}
+		.gnb li.active a {color: gold;}
+		.gnb li a {color: #fff;}
+
+		section {height: 1000px;}
+		#home {background: lightblue;padding-top: 50px;}
+		#about {background: lightcoral;}
+		#business {background: lightseagreen;}
+		#portfolio {background: lightyellow;}
+		#contact {background: lightsalmon;}
+	</style>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		window.onload = function () {
+			var _this = $('header');
+			var thisTop = _this.offset().top;
+			var thisHe = _this.outerHeight();
+
+			_this.find('.menu-li').each(function (i) {
+				var _liThis = $(this);
+				var divId = _liThis.find('a').attr('href');
+				var divIdtop = $(divId).offset().top - thisHe;
+
+				_liThis.on('click', function (e) {
+					e.preventDefault(); // 하위 태그의 이벤트들 막기
+					$('body,html').animate({ scrollTop: divIdtop }, 600);
+				});
+
+				$(window).scroll(function () {
+					if ($(this).scrollTop() > divIdtop - 1) {
+						_liThis.addClass('active').siblings().removeClass('active');
+					}
+				});
+			});
+		};
+	</script>
+</head>
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+	
+	<div id="wrap">
+		<header>
+			<ul class="gnb">
+				<li class="active menu-li"><a href="#home">HOME</a></li>
+				<li class="menu-li"><a href="#about">ABOUT US</a></li>
+				<li class="menu-li"><a href="#business">BUSINESS</a></li>
+				<li class="menu-li"><a href="#portfolio">PORTFOLIO</a></li>
+				<li class="menu-li"><a href="#contact">CONTACT US</a></li>
+			</ul>
+		</header>
+
+		<section id="home">section - home</section>
+		<section id="about">section- about</section>
+		<section id="business">section - business</section>
+		<section id="portfolio">section - portpolio</section>
+		<section id="contact">section - contact</section>
+	</div>
+</body>
+</html>
