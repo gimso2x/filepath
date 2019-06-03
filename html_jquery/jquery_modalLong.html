@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		* {-webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out;}
+		.longModalLayer {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background: rgba(0,0,0,0.5);
+		}
+		.longModalLayer.open {
+			display: block;
+		}
+		.longModalLayer  .longModalWrap {
+			position: relative;
+			width: 950px;
+			margin: 30px auto 30px;
+			background: #fff;
+			padding: 30px;
+			height: 2000px;
+		}
+	</style>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.longModalPop').on('click', function(e) {
+				e.preventDefault();
+				$('.longModalLayer').addClass('open');
+			});
+
+			$('.longModalClose').on('click', function(e) {
+				e.preventDefault();
+				$('.longModalLayer').removeClass('open');
+			})
+
+			$('.longModalLayer:visible').on('click', function() {
+				console.log(3);
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html"
+		style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
+	<a href="#modal" class="longModalPop">모달레이어팝업 스크롤 길게</a>
+
+	<div class="longModalLayer">
+		<div class="longModalWrap">
+			<a href="#close" class="longModalClose">모달 닫기</a>
+			<div class="longModalContents">콘텐츠 내용</div>
+		</div>
+	</div>
+</body>
+
+</html>
