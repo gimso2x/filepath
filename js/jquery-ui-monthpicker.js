@@ -404,7 +404,7 @@
                 if (i % 3 === 0) {
                     html += '<tr>'
                 }
-                html += '<td style="padding:1px;cursor:default;" data-month=' + i + '>' + '<a  style="text-align: center;" class="ui-state-default' + (drawYear == inst.currentYear && i == inst.currentMonth ? ' ui-state-active' : '') + (drawYear == today.getFullYear() && i == today.getMonth() ? ' ui-state-highlight' : '') + '" onclick="MP_jQuery_' + dpuuid + '.monthpicker._selectMonth(\'#' + inst.id + '\',' + drawYear + ', ' + i + ');return false;" actionshref="#">' + (inst.settings && inst.settings.monthNamesShort ? inst.settings.monthNamesShort[i] : this._defaults.monthNamesShort[i]) + '</a>' + '</td>';
+                html += '<td style="padding:1px;cursor:default;" data-month=' + i + '>' + '<a  style="text-align: center;" class="ui-state-default' + (drawYear == inst.currentYear && i == inst.currentMonth ? ' ui-state-active' : '') + (drawYear == today.getFullYear() && i == today.getMonth() ? ' ui-state-highlight' : '') + '" onclick="MP_jQuery_' + dpuuid + '.monthpicker._selectMonth(\'#' + inst.id + '\',' + drawYear + ', ' + i + ');return false;" actionshref="#" href="#">' + (inst.settings && inst.settings.monthNamesShort ? inst.settings.monthNamesShort[i] : this._defaults.monthNamesShort[i]) + '</a>' + '</td>';
                 if (i % 3 === 2) {
                     html += '</tr>'
                 }
