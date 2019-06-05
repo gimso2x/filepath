@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		/* input[type="file"] */
+		.filebox input[type="file"] {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			/* clip: rect(0, 0, 0, 0); */
+			border: 0;
+			visibility: hidden;
+		}
+
+		.filebox label {
+			cursor: pointer;
+			border: 1px solid #999;
+			background: #fff;
+		}
+
+		.filebox .upload-name {
+			display: inline-block;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #fff;
+			border: 1px solid #999;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+	</style>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html"
+		style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
+	<div class="filebox">
+		<input class="upload-name" value="" disabled="disabled">
+		<input type="file" id="ex_filename" class="upload-hidden">
+		<label for="ex_filename" class="">파일찾기</label>
+	</div>
+
+	<script>
+		// input file
+		var fileTarget = $('.filebox .upload-hidden');
+		fileTarget.on('change', function () { // 값이 변경되면 
+			if (window.FileReader) { // modern browser 
+				var filename = $(this)[0].files[0].name;
+			} else { // old IE 
+				var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
+			};
+			// 추출한 파일명 삽입 
+			$(this).siblings('.upload-name').val(filename);
+		});
+	</script>
+</body>
+
+</html>
