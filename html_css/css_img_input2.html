@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    /* 체크박스 */
+    .input-check {position:relative;display:inline-block;min-height:20px;margin-left:12px;line-height:20px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle;}
+    .input-check:first-child {margin-left:0;}
+    .input-check>input[type="checkbox"] {position:absolute;top:0;left: 0;height:auto;line-height:normal;opacity:0;}
+    .input-check>.label-text {display:inline-block; padding-left:23px; vertical-align:top;background:url('../img/ico_checkbox_off.png') no-repeat 0 0 / 20px;}
+    .input-check>input[type="checkbox"]:checked + .label-text {background:url('../img/ico_checkbox_on.png') no-repeat 0 0 / 20px;}
+    
+    /* 라디오 */
+    .input-radio {position:relative; display:inline-block;min-height:23px;margin-left:12px;line-height:23px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle;}
+    .input-radio:first-child {margin-left:0;}
+    .input-radio>input[type="radio"] {position:absolute;top:0;left: 0;height:auto;line-height:normal;opacity:0;}
+    .input-radio>.label-text {display:inline-block; padding-left:28px; vertical-align:top;background:url('../img/ico_radio_off.png') no-repeat 0 0 / 23px;}
+    .input-radio>input[type="radio"]:checked + .label-text {background:url('../img/ico_radio_on.png') no-repeat 0 0 / 23px;}
+    </style>
+</head>
+<body>
+    <!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
+    <!-- 체크박스 -->
+    <label class="input-check">
+        <input type="checkbox" id="mailChk3">
+        <span class="label-text">체크박스 체크해제</span>
+    </label>
+    
+    <label class="input-check">
+        <input type="checkbox" id="mailChk4" checked="">
+        <span class="label-text">체크박스 체크</span>
+    </label>
+    
+    <!-- 라디오박스 -->
+    <label class="input-radio" for="rdoSolar1">
+        <input type="radio" id="rdoSolar1" name="birthday_type2" checked="">
+        <span class="label-text">라디오 체크</span>
+    </label>
+    <label class="input-radio" for="rdoLunar1">
+        <input type="radio" id="rdoLunar1" name="birthday_type2">
+        <span class="label-text">라디오 체크해제</span>
+    </label>
+</body>
+</html>
