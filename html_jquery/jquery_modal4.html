@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jquery_modal</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.popFullWrap {
+			display: none;
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.popContWrap {
+			width: 350px;
+			background: #fff;
+			border: 1px solid #000;
+		}
+	</style>
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function () {
+			// 레이어 팝업
+			$('.popModal_button').click(function () {
+				$('#layer').neoModal();
+			});
+			$('.popModal_button2').click(function () {
+				$('#layer2').neoModal({
+					dimLayer: false,
+					scrollLock: false,
+					dimClickClose: false,
+				});
+			});
+			$('.popModal_button3').click(function () {
+				$('#layer3').neoModal('close');
+			});
+			$('.popModal_button4').click(function () {
+				$('#layer4').neoModal();
+			});
+		});
+
+/*=============================================
+		레이어팝업(neoModal)
+
+ * Basic Open
+ * - $('#layer').neoModal();
+ * Basic Close
+ * - $('#layer').neoModal('close'); 
+ * Add Option with open
+ * - $('#layer2').neoModal({
+		dimLayer: false,
+		scrollLock: false,
+		dimClickClose: false,
+	});
+=============================================*/
+(function ($) {
+	var options = {};
+	var visiblePopupsArray = [];
+	var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
+	var methods = {
+		_init: function(el) {
+			this.show(el);
+		},
+		show: function(el) {
+			var $el = $(el);
+
+			 // Remember which element had focus before opening a popup
+			$el.data('focusedelementbeforepopup', document.activeElement);
+
+			options.scrollLock && $('html,body').css('overflow','hidden');
+			options.dimLayer && $el.css('background', options.dimBackColor);
+
+			// new pop, z-index ++
+			if(visiblePopupsArray.length) {
+				var elementId = visiblePopupsArray[visiblePopupsArray.length - 1];
+				var el5 = document.getElementById(elementId);
+				$el.css('z-index', parseInt($(el5).css('z-index')) + 2);
+			} else {
+				$el.css('z-index', options.minZindex);
+			}
+			
+
+			// layer fadeIn
+			$el.fadeIn(options.speed).focus();
+
+			visiblePopupsArray.push(el.id);
+			// position center
+			var childWrap = $el.children('.popContWrap');
+			childWrap.css("position","absolute");
+			childWrap.css("top", Math.max(0, (($(window).height() - childWrap.outerHeight()) / 2) + $(window).scrollTop()) + "px");
+			childWrap.css("left", Math.max(0, (($(window).width() - childWrap.outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+		},
+		close: function(el) {
+			var $el = $(el);
+			var popupIdIndex = $.inArray(el.id, visiblePopupsArray);
+
+			// If popup is not opened, ignore the rest of the function
+			if (popupIdIndex === -1) {
+				return;
+			}
+			if(!popupIdIndex) {
+				$('html,body').css('overflow','');
+			}
+			visiblePopupsArray.splice(popupIdIndex, 1);
+			// layer fadeOut
+			$el.fadeOut(options.speed);
+
+			// Focus back on saved element
+			setTimeout(function() {
+				if ($($el.data('focusedelementbeforepopup')).is(':visible')) {
+					$el.data('focusedelementbeforepopup').focus();
+				}
+			}, 0);
+		}
+	}
+
+	// Hide pop click button
+	$(document).on('click' ,function(e) {
+		if(visiblePopupsArray.length) {
+			var elementId = visiblePopupsArray[visiblePopupsArray.length - 1];
+			var el = document.getElementById(elementId);
+			var $eTarget = $(e.target);
+
+			if($eTarget.hasClass(options.closeButton)){
+				methods.close(el);
+			}
+
+			if(options.dimClickClose) {
+				if($eTarget.hasClass('popFullWrap')){
+					methods.close(el);
+				}
+			}
+			
+		}
+	});
+
+	// Keep keyboard focus inside of popup
+	$(document).on('keydown', function(event) {
+		if(visiblePopupsArray.length && event.which == 9) {
+			var elementId = visiblePopupsArray[visiblePopupsArray.length - 1];
+			var el = document.getElementById(elementId);
+
+			// Get list of all children elements in given object
+			var popupItems = $(el).find('*');
+			// Get list of focusable items
+			var focusableItems = popupItems.filter(focusableElementsString).filter(':visible');
+			// Get currently focused item
+			var focusedItem = $(':focus');
+			// Get the number of focusable items
+			var numberOfFocusableItems = focusableItems.length;
+			// Get the index of the currently focused item
+			var focusedItemIndex = focusableItems.index(focusedItem);
+
+			 // If popup doesn't contain focusable elements, focus popup itself
+			if (numberOfFocusableItems === 0) {
+				$(el).focus();
+				event.preventDefault();
+			} else {
+				if (event.shiftKey) {
+					// Back tab
+					// If focused on first item and user preses back-tab, go to the last focusable item
+					if (focusedItemIndex === 0) {
+						focusableItems.get(numberOfFocusableItems - 1).focus();
+						event.preventDefault();
+					}
+				} else {
+					// Forward tab
+					// If focused on the last item and user preses tab, go to the first focusable item
+					if (focusedItemIndex == numberOfFocusableItems - 1) {
+						focusableItems.get(0).focus();
+						event.preventDefault();
+					}
+				}
+			}
+
+		}
+	});
+
+	$.fn.neoModal = function (customOptions) {
+		return this.each(function() {
+			var _$el = $(this);
+			var newDefaults = $.extend(true, {}, $.fn.neoModal.defaults);
+
+			if (typeof customOptions === 'object') { // e.g. $('#popup').popup({'color':'blue'})
+				var opt = $.extend({}, newDefaults, customOptions);
+				options = opt;
+				methods._init(this);
+
+			} else if (typeof customOptions === 'string') { // e.g. $('#popup').popup('close')
+				methods[customOptions](this);
+				options = newDefaults;
+
+			} else { // e.g. $('#popup').popup()
+				options = newDefaults;
+				methods._init(this);
+
+			}
+		});
+	};
+
+	$.fn.neoModal.defaults = {
+		dimLayer: true,
+		dimBackColor: 'rgba(0, 0, 0, 0.3)',
+		dimClickClose: true, // dim click close
+		speed: 400, // modal fadeIn speed
+		scrollLock: true, // parent scroll lock
+		closeButton: 'btn-close', // closebutton class
+		minZindex: 99999,
+	}
+})(jQuery);
+</script>
+</head>
+
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+
+	<div class="wrap">
+		<button class="popModal_button">팝업레이어</button>
+		<button class="popModal_button2">팝업레이어</button>
+		<button class="popModal_button3">팝업레이어</button>
+	</div>
+
+	<!-- 레이어 팝업-->
+	<div id="layer" class="popFullWrap">
+		<div class="popContWrap">
+			<div class="pop-container">
+				<a href="javascript:void(0);" class="btn-close">닫기</a>
+				<div class="pop-header">
+					레이어1 헤더
+				</div>
+				<div class="pop-conts">
+					레이어1 내용
+					<button class="popModal_button4">팝업레이어</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="layer2" class="popFullWrap">
+		<div class="popContWrap">
+			<a href="javascript:void(0);" class="btn-close">닫기</a>
+			<div class="pop-header">
+				레이어2 헤더
+			</div>
+			<div class="pop-conts">
+				레이어2 내용
+			</div>
+		</div>
+	</div>
+
+	<div id="layer3" class="popFullWrap">
+		<div class="popContWrap">
+			<a href="javascript:void(0);" class="btn-close">닫기</a>
+			<div class="pop-header">
+				레이어3 헤더
+			</div>
+			<div class="pop-conts">
+				레이어3 내용
+			</div>
+		</div>
+	</div>
+
+	<div id="layer4" class="popFullWrap">
+		<div class="popContWrap">
+			<a href="javascript:void(0);" class="btn-close">닫기</a>
+			<div class="pop-header">
+				레이어4 헤더
+			</div>
+			<div class="pop-conts">
+				레이어4 내용
+			</div>
+		</div>
+	</div>
+	<!--// 레이어 팝업-->
+</body>
+
+</html>
