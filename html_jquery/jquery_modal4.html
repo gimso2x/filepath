@@ -32,9 +32,9 @@
 		레이어팝업(neoModal)
 
 * Basic Open
-	- $('#layer').neoModal();
+	- $('#basic_modal').neoModal();
 * Basic Close
-	- $('#layer').neoModal('close'); 
+	- $('#basic_modal').neoModal('close');
 * Add Option with open
 	- $('#layer2').neoModal({
 		dimLayer: false,
@@ -98,7 +98,7 @@
 			}
 
 			if(options.message !== null) {
-				childWrap.append(options.message);
+				childWrap.children('.messageWrap').html(options.message);
 			}
 			
 			visiblePopupsArray.push(el.id);
@@ -322,11 +322,15 @@ $('#basic_modal').neoModal('close');</code></pre>
 	<!-- Message Model -->
 	<h4>Message Modal</h4>
 	<button class="message">Message</button>
+	<p>message의 경우 &lt;div class=&quot;messageWrap&quot;&gt;&lt;/div&gt; 필요</p>
 	<pre><code>$('#message_modal').neoModal({
 	message: '&lt;div&gt;&lt;span style=&quot;color:red&quot;&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xB0B4;&#xC6A9;&lt;br&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xC54C;&#xB9BC;&lt;/span&gt;tests',
 });</code></pre>
 
-	</div>
+	<button class="message_sample">Message_sample</button>
+	<button class="message_sample2">Message_sample2</button>
+
+</div>
 
 	
 
@@ -372,7 +376,17 @@ $('#basic_modal').neoModal('close');</code></pre>
 	<div id="message_modal" class="popFullWrap">
 		<div class="popContWrap">
 			<h4>message 내용 추가</h4>
+			<div class="messageWrap"></div>
 			<button class="popBtnClose">닫기</button>
+		</div>
+	</div>
+
+	<div id="message_modal_sample" class="popFullWrap">
+		<div class="popContWrap">
+			<!-- <h4>message 내용 추가</h4> -->
+			<div class="messageWrap"></div>
+			<button class="popBtnClose">닫기</button>
+			<button class="popBtnSubmit">확인</button>
 		</div>
 	</div>
 	<!--// 레이어 팝업-->
@@ -422,6 +436,34 @@ $('#basic_modal').neoModal('close');</code></pre>
 				$('#message_modal').neoModal({
 					message: '<div><span style="color:red">테스트내용<br>테스트알림</span>tests',
 				});
+			});
+
+			$('.message_sample').click(function(){
+				$('#message_modal_sample').neoModal({
+					message: '<div><span style="color:red">이**</span>님이 <span>뉴코에드윈드 종목 5,000원 100주</span> 협상요청을 수락했습니다.<br>확인 클릭하시면, 협상채팅창이 열립니다</div>',
+					callBackArray : [
+						{
+							className: 'popBtnSubmit',
+							funcName: function() {
+								alert('popSubmitClose');
+							}
+						},
+					],
+				})
+			});
+
+			$('.message_sample2').click(function(){
+				$('#message_modal_sample').neoModal({
+					message: '<div><span style="color:red">홍**</span>님이 <span>종목 5,000원 100주</span> 협상요청을 수락했습니다.<br>확인 클릭하시면, 협상채팅창이 열립니다</div>',
+					callBackArray : [
+						{
+							className: 'popBtnSubmit',
+							funcName: function() {
+								alert('popSubmitClose');
+							}
+						},
+					],
+				})
 			});
 		});
 	</script>
