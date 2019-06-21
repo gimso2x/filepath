@@ -212,7 +212,7 @@
 		dimClickClose: true, // dim click close
 		speed: 400, // modal fadeIn speed
 		scrollLock: true, // parent scroll lock
-		closeButton: 'btn-close', // closebutton class
+		closeButton: 'popBtnClose', // closebutton class
 		minZindex: 99999,
 	}
 })(jQuery);
@@ -224,7 +224,7 @@
 	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
 	<!-- // historyBack -->
 
-	<div class="wrap">
+	<div class="wrap" style="padding-top: 200px;padding-bottom: 1800px;">
 		<button class="popModal_button">팝업레이어</button>
 		<button class="popModal_button2">팝업레이어</button>
 		<button class="popModal_button3">팝업레이어</button>
@@ -233,52 +233,29 @@
 	<!-- 레이어 팝업-->
 	<div id="layer" class="popFullWrap">
 		<div class="popContWrap">
-			<div class="pop-container">
-				<a href="javascript:void(0);" class="btn-close">닫기</a>
-				<div class="pop-header">
-					레이어1 헤더
-				</div>
-				<div class="pop-conts">
-					레이어1 내용
-					<button class="popModal_button4">팝업레이어</button>
-				</div>
-			</div>
+				<a href="javascript:void(0);" class="popBtnClose">닫기</a>
+				<button class="popModal_button4">팝업레이어4열기</button>
 		</div>
 	</div>
 
 	<div id="layer2" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="btn-close">닫기</a>
-			<div class="pop-header">
-				레이어2 헤더
-			</div>
-			<div class="pop-conts">
-				레이어2 내용
-			</div>
+			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
+			레이어2내용
 		</div>
 	</div>
 
 	<div id="layer3" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="btn-close">닫기</a>
-			<div class="pop-header">
-				레이어3 헤더
-			</div>
-			<div class="pop-conts">
-				레이어3 내용
-			</div>
+			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
+			레이어3내용
 		</div>
 	</div>
 
 	<div id="layer4" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="btn-close">닫기</a>
-			<div class="pop-header">
-				레이어4 헤더
-			</div>
-			<div class="pop-conts">
-				레이어4 내용
-			</div>
+			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
+			레이어4내용
 		</div>
 	</div>
 	<!--// 레이어 팝업-->
