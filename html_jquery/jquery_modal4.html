@@ -7,57 +7,65 @@
 	<title>jquery_modal</title>
 	<link rel="stylesheet" href="../css/reset.css">
 	<style>
-		.popFullWrap {
-			display: none;
-			position: fixed;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 100%;
-		}
-		.popContWrap {
-			width: 350px;
-			background: #fff;
-			border: 1px solid #000;
-		}
+		.popFullWrap { /* necessary css*/ display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; width: 100%; height: 100%;overflow: auto;}
+		.popContWrap { /* control css */ width: 350px;background-color: #fff;border: 1px solid #e3e3e3;border-radius: 4px;padding: 20px;box-shadow: inset 0 1px 1px rgba(0,0,0,.05);}
+
+		/* sample css */
+		body {color: #333;}
+		.wrap {padding: 30px 30px 1800px;}
+		.wrap * {font-family: Arial, Helvetica, sans-serif;}
+		h1 {font-size: 36px;margin-top: 20px;margin-bottom: 10px;color: #333333;}
+		h1 + p {font-size: 18px;color: #000;margin-bottom: 30px;}
+		.wrap button, button {display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px;background: #383d46;color: #fff;}		
+		h2 {font-size: 25px;margin-bottom: 10px;}
+		h4 {font-size: 18px;margin-top: 30px;margin-bottom: 10px;color: mediumslateblue;}
+		h4:first-child {margin-top: 10px;}
+		h4 + button {margin-bottom: 10px !important;}
+		pre * {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important; font-weight: 500;}
+		pre {border: 1px solid #888;padding: 9px 14px;display: block; margin: 0 0 10px;font-size: 15px; line-height: 1.42857143; color: #333; word-break: break-all; word-wrap: break-word; background-color: #f5f5f5; border-radius: 4px;}
+		pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap; background-color: transparent; border-radius: 0; }
 	</style>
 
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script>
-		$(function () {
-			// 레이어 팝업
-			$('.popModal_button').click(function () {
-				$('#layer').neoModal();
-			});
-			$('.popModal_button2').click(function () {
-				$('#layer2').neoModal({
-					dimLayer: false,
-					scrollLock: false,
-					dimClickClose: false,
-				});
-			});
-			$('.popModal_button3').click(function () {
-				$('#layer3').neoModal('close');
-			});
-			$('.popModal_button4').click(function () {
-				$('#layer4').neoModal();
-			});
-		});
-
 /*=============================================
 		레이어팝업(neoModal)
 
- * Basic Open
- * - $('#layer').neoModal();
- * Basic Close
- * - $('#layer').neoModal('close'); 
- * Add Option with open
- * - $('#layer2').neoModal({
+* Basic Open
+	- $('#layer').neoModal();
+* Basic Close
+	- $('#layer').neoModal('close'); 
+* Add Option with open
+	- $('#layer2').neoModal({
 		dimLayer: false,
 		scrollLock: false,
 		dimClickClose: false,
+	});
+* Add Callback
+	- $('#layer3').neoModal({
+		callBackArray : [
+			{
+				className: 'popSubmitClose',
+				funcName: function() {
+					testAlert();
+				}
+			},
+			{
+				className: 'popSubmitClose1',
+				funcName: function() {
+					$('#layer3').neoModal('close');
+					$('#layer4').neoModal();
+				}
+			}
+		],
+	});
+
+	function testAlert() {
+		alert('testAlert');
+	}
+* Add Message
+	$('#layer4').neoModal({
+		message: '<div><span>23123</span>tests',
 	});
 =============================================*/
 (function ($) {
@@ -70,7 +78,9 @@
 			this.show(el);
 		},
 		show: function(el) {
+
 			var $el = $(el);
+			var childWrap = $el.children('.popContWrap');
 
 			 // Remember which element had focus before opening a popup
 			$el.data('focusedelementbeforepopup', document.activeElement);
@@ -86,17 +96,27 @@
 			} else {
 				$el.css('z-index', options.minZindex);
 			}
-			
 
+			if(options.message !== null) {
+				childWrap.append(options.message);
+			}
+			
+			visiblePopupsArray.push(el.id);
+			
 			// layer fadeIn
 			$el.fadeIn(options.speed).focus();
 
-			visiblePopupsArray.push(el.id);
 			// position center
-			var childWrap = $el.children('.popContWrap');
 			childWrap.css("position","absolute");
-			childWrap.css("top", Math.max(0, (($(window).height() - childWrap.outerHeight()) / 2) + $(window).scrollTop()) + "px");
-			childWrap.css("left", Math.max(0, (($(window).width() - childWrap.outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+			childWrap.css("top", "50%");
+			childWrap.css("left", "50%");
+
+			if (childWrap.outerHeight() < $(document).height() || childWrap.outerWidth() < $(document).width()) {
+				childWrap.css({ marginTop: -childWrap.outerHeight() / 2, marginLeft: -childWrap.outerWidth() / 2 })
+			} else {
+				childWrap.css({ top: 0, left: 0 });
+			}
+
 		},
 		close: function(el) {
 			var $el = $(el);
@@ -139,6 +159,16 @@
 				}
 			}
 			
+			if(options.callBackArray !== null) {
+				options.callBackArray.forEach(function(e) {
+					if($eTarget.hasClass(e.className)){
+						var callback = e.funcName;
+						if ($.isFunction(callback)) {
+							callback.call(this);
+						}
+					}
+				});
+			}
 		}
 	});
 
@@ -186,7 +216,6 @@
 
 	$.fn.neoModal = function (customOptions) {
 		return this.each(function() {
-			var _$el = $(this);
 			var newDefaults = $.extend(true, {}, $.fn.neoModal.defaults);
 
 			if (typeof customOptions === 'object') { // e.g. $('#popup').popup({'color':'blue'})
@@ -214,6 +243,23 @@
 		scrollLock: true, // parent scroll lock
 		closeButton: 'popBtnClose', // closebutton class
 		minZindex: 99999,
+		callBackArray: null,
+		/* callBackArray : [
+			{
+				className: 'popSubmitClose',
+				funcName: function() {
+					testAlert();
+				}
+			},
+			{
+				className: 'popSubmitClose1',
+				funcName: function() {
+					$('#layer3').neoModal('close');
+					$('#layer4').neoModal();
+				}
+			}
+		], */
+		message: null, // message: 'Lorem ipsum dolor sit amet'
 	}
 })(jQuery);
 </script>
@@ -224,41 +270,161 @@
 	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
 	<!-- // historyBack -->
 
-	<div class="wrap" style="padding-top: 200px;padding-bottom: 1800px;">
-		<button class="popModal_button">팝업레이어</button>
-		<button class="popModal_button2">팝업레이어</button>
-		<button class="popModal_button3">팝업레이어</button>
+	<div class="wrap">
+		<h1>jQuery Popup neoModal</h1>
+		<p>jQuery plugin for modal open, close, callback, message</p>
+		<h4>Basic Html</h4>
+<pre><code>&lt;div id=&quot;layer2&quot; class=&quot;popFullWrap&quot;&gt;
+	&lt;div class=&quot;popContWrap&quot;&gt;
+		&lt;button class=&quot;popBtnClose&quot;&gt;&#xB2EB;&#xAE30;&lt;/button&gt;
+		레이어내용
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<!-- Basic Model -->
+		<h4>Basic Modal</h4>
+		<button class="basic">Basic</button>
+		<pre><code>$('#basic_modal').neoModal();
+
+// 해당 modal 닫을 시 'close' 추가
+$('#basic_modal').neoModal('close');</code></pre>
+		
+<!-- Add Option -->
+		<h4>Option Modal</h4>
+		<button class="option">Option</button>
+		<pre><code>$('#option_modal').neoModal({
+	dimLayer: false, //검은 배경 미사용
+	scrollLock: false, //부모스크롤 막기 해제
+	dimClickClose: false, // 배경 눌러서 닫기 해제
+});</code></pre>
+
+<!-- Callback Option -->
+		<h4>Callback Modal</h4>
+		<button class="callback">Callback</button>
+		<pre><code>$('#callback_modal').neoModal({
+	callBackArray : [
+		{
+			className: 'popSubmitClose',
+			funcName: function() {
+				alert('popSubmitClose');
+			}
+		},
+		{
+			className: 'popSubmitClose1',
+			funcName: function() {
+				$('#callback_modal').neoModal('close');
+				$('#basic_modal').neoModal();
+			}
+		}
+	],
+});</code></pre>
+
+	<!-- Message Model -->
+	<h4>Message Modal</h4>
+	<button class="message">Message</button>
+	<pre><code>$('#message_modal').neoModal({
+	message: '&lt;div&gt;&lt;span style=&quot;color:red&quot;&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xB0B4;&#xC6A9;&lt;br&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xC54C;&#xB9BC;&lt;/span&gt;tests',
+});</code></pre>
+
 	</div>
+
+	
 
 	<!-- 레이어 팝업-->
-	<div id="layer" class="popFullWrap">
+	<div id="basic_modal" class="popFullWrap">
 		<div class="popContWrap">
-				<a href="javascript:void(0);" class="popBtnClose">닫기</a>
-				<button class="popModal_button4">팝업레이어4열기</button>
+			<h4>Basic Modal</h4>
+			Basic Modal 내용
+			<button class="popBtnClose">닫기</button>
+			<h4>팝업속의 팝업</h4>
+			<button class="new_popup">뉴팝업</button>
 		</div>
 	</div>
 
-	<div id="layer2" class="popFullWrap">
+	<div id="new_popup" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
-			레이어2내용
+			<h4>message 내용 추가</h4>
+			<button class="popBtnClose">닫기</button>
 		</div>
 	</div>
 
-	<div id="layer3" class="popFullWrap">
+	<div id="option_modal" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
-			레이어3내용
+			<h4>Option Modal</h4>
+			Option Modal 내용
+			<button class="popBtnClose">닫기</button>
+			
 		</div>
 	</div>
 
-	<div id="layer4" class="popFullWrap">
+	<div id="callback_modal" class="popFullWrap">
 		<div class="popContWrap">
-			<a href="javascript:void(0);" class="popBtnClose">닫기</a>
-			레이어4내용
+			<h4>Callback Modal</h4>
+			Callback Modal 내용
+			<button class="popBtnClose">닫기</button>
+			<div>
+				<button class="popSubmitClose">콜백버튼 이벤트</button>
+				<button class="popSubmitClose1">콜백버튼 이벤트2</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="message_modal" class="popFullWrap">
+		<div class="popContWrap">
+			<h4>message 내용 추가</h4>
+			<button class="popBtnClose">닫기</button>
 		</div>
 	</div>
 	<!--// 레이어 팝업-->
+	<script>
+		$(function () {
+			// 기본 팝업
+			$('.basic').click(function () {
+				$('#basic_modal').neoModal();
+			});
+
+			$('.new_popup').click(function() {
+				$('#new_popup').neoModal();
+			})
+
+			// option 팝업
+			$('.option').click(function () {
+				$('#option_modal').neoModal({
+					dimLayer: false,
+					scrollLock: false,
+					dimClickClose: false,
+				});
+			});
+
+			// callback 팝업
+			$('.callback').click(function () {
+				$('#callback_modal').neoModal({
+					callBackArray : [
+						{
+							className: 'popSubmitClose',
+							funcName: function() {
+								alert('popSubmitClose');
+							}
+						},
+						{
+							className: 'popSubmitClose1',
+							funcName: function() {
+								$('#callback_modal').neoModal('close');
+								$('#basic_modal').neoModal();
+							}
+						}
+					],
+				});
+			});
+
+			// message 팝업
+			$('.message').click(function () {
+				$('#message_modal').neoModal({
+					message: '<div><span style="color:red">테스트내용<br>테스트알림</span>tests',
+				});
+			});
+		});
+	</script>
 </body>
 
 </html>
