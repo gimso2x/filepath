@@ -78,15 +78,19 @@
 			this.show(el);
 		},
 		show: function(el) {
-
 			var $el = $(el);
 			var childWrap = $el.children('.popContWrap');
 
 			 // Remember which element had focus before opening a popup
 			$el.data('focusedelementbeforepopup', document.activeElement);
 
-			options.scrollLock && $('html,body').css('overflow','hidden');
-			options.dimLayer && $el.css('background', options.dimBackColor);
+			if(options.scrollLock) {
+				$('html,body').css('overflow','hidden');
+			}
+
+			if(options.dimLayer) {
+				$el.css('background', options.dimBackColor);
+			}
 
 			// new pop, z-index ++
 			if(visiblePopupsArray.length) {
@@ -112,7 +116,7 @@
 			childWrap.css("left", "50%");
 
 			if (childWrap.outerHeight() < $(document).height() || childWrap.outerWidth() < $(document).width()) {
-				childWrap.css({ marginTop: -childWrap.outerHeight() / 2, marginLeft: -childWrap.outerWidth() / 2 })
+				childWrap.css({ marginTop: -childWrap.outerHeight() / 2, marginLeft: -childWrap.outerWidth() / 2 });
 			} else {
 				childWrap.css({ top: 0, left: 0 });
 			}
@@ -140,7 +144,7 @@
 				}
 			}, 0);
 		}
-	}
+	};
 
 	// Hide pop click button
 	$(document).on('click' ,function(e) {
@@ -260,7 +264,7 @@
 			}
 		], */
 		message: null, // message: 'Lorem ipsum dolor sit amet'
-	}
+	};
 })(jQuery);
 </script>
 </head>
