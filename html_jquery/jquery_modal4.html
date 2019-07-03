@@ -12,7 +12,7 @@
 
 		/* sample css */
 		body {color: #333;}
-		.wrap {padding: 30px 30px 1800px;}
+		.wrap {padding: 30px;}
 		.wrap * {font-family: Arial, Helvetica, sans-serif;}
 		h1 {font-size: 36px;margin-top: 20px;margin-bottom: 10px;color: #333333;}
 		h1 + p {font-size: 18px;color: #000;margin-bottom: 30px;}
@@ -121,6 +121,11 @@
 				childWrap.css({ top: 0, left: 0 });
 			}
 
+			var openCallback = options.open;
+			if ($.isFunction(openCallback)) {
+				openCallback.call(this);
+			}
+
 		},
 		close: function(el) {
 			var $el = $(el);
@@ -143,6 +148,11 @@
 					$el.data('focusedelementbeforepopup').focus();
 				}
 			}, 0);
+
+			var closeCallback = options.close;
+			if ($.isFunction(closeCallback)) {
+				closeCallback.call(this);
+			}
 		}
 	};
 
@@ -245,7 +255,7 @@
 		dimClickClose: true, // dim click close
 		speed: 400, // modal fadeIn speed
 		scrollLock: true, // parent scroll lock
-		closeButton: 'popBtnClose', // closebutton class
+		closeButton: 'pop_btn_close', // closebutton class
 		minZindex: 99999,
 		callBackArray: null,
 		/* callBackArray : [
@@ -280,7 +290,7 @@
 		<h4>Basic Html</h4>
 <pre><code>&lt;div id=&quot;layer2&quot; class=&quot;pop_dim_wrap&quot;&gt;
 	&lt;div id=&quot;pop_wrap&quot;&gt;
-		&lt;button class=&quot;popBtnClose&quot;&gt;&#xB2EB;&#xAE30;&lt;/button&gt;
+		&lt;button class=&quot;pop_btn_close&quot;&gt;&#xB2EB;&#xAE30;&lt;/button&gt;
 		레이어내용
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -303,9 +313,21 @@ $('#basic_modal').neoModal('close');</code></pre>
 });</code></pre>
 
 <!-- Callback Option -->
-		<h4>Callback Modal</h4>
+		<h4>Callback Modal(open, close)</h4>
 		<button class="callback">Callback</button>
 		<pre><code>$('#callback_modal').neoModal({
+	open: function() {
+		alert('modal open');
+	},
+	close: function() {
+		alert('modal close');
+	}
+});</code></pre>
+
+<!-- Add Callback Option -->
+		<h4>Add Callback Modal</h4>
+		<button class="add_callback">Add Callback</button>
+		<pre><code>$('#add_callback_modal').neoModal({
 	callBackArray : [
 		{
 			className: 'popSubmitClose',
@@ -316,7 +338,7 @@ $('#basic_modal').neoModal('close');</code></pre>
 		{
 			className: 'popSubmitClose1',
 			funcName: function() {
-				$('#callback_modal').neoModal('close');
+				$('#add_callback_modal').neoModal('close');
 				$('#basic_modal').neoModal();
 			}
 		}
@@ -344,7 +366,7 @@ $('#message_modal').neoModal({
 		<div id="pop_wrap">
 			<h4>Basic Modal</h4>
 			Basic Modal 내용
-			<button class="popBtnClose">닫기</button>
+			<button class="pop_btn_close">닫기</button>
 			<h4>팝업속의 팝업</h4>
 			<button class="new_popup">뉴팝업</button>
 		</div>
@@ -353,7 +375,7 @@ $('#message_modal').neoModal({
 	<div id="new_popup" class="pop_dim_wrap">
 		<div id="pop_wrap">
 			<h4>message 내용 추가</h4>
-			<button class="popBtnClose">닫기</button>
+			<button class="pop_btn_close">닫기</button>
 		</div>
 	</div>
 
@@ -361,16 +383,25 @@ $('#message_modal').neoModal({
 		<div id="pop_wrap">
 			<h4>Option Modal</h4>
 			Option Modal 내용
-			<button class="popBtnClose">닫기</button>
+			<button class="pop_btn_close">닫기</button>
 			
 		</div>
 	</div>
 
 	<div id="callback_modal" class="pop_dim_wrap">
+			<div id="pop_wrap">
+				<h4>Callback Modal</h4>
+				Callback Modal 내용
+				<button class="pop_btn_close">닫기</button>
+				
+			</div>
+		</div>
+
+	<div id="add_callback_modal" class="pop_dim_wrap">
 		<div id="pop_wrap">
-			<h4>Callback Modal</h4>
-			Callback Modal 내용
-			<button class="popBtnClose">닫기</button>
+			<h4>Add Callback Modal</h4>
+			Add Callback Modal 내용
+			<button class="pop_btn_close">닫기</button>
 			<div>
 				<button class="popSubmitClose">콜백버튼 이벤트</button>
 				<button class="popSubmitClose1">콜백버튼 이벤트2</button>
@@ -382,7 +413,7 @@ $('#message_modal').neoModal({
 		<div id="pop_wrap">
 			<h4>message 내용 추가</h4>
 			<div class="messageWrap"></div>
-			<button class="popBtnClose">닫기</button>
+			<button class="pop_btn_close">닫기</button>
 		</div>
 	</div>
 
@@ -390,7 +421,7 @@ $('#message_modal').neoModal({
 		<div id="pop_wrap">
 			<!-- <h4>message 내용 추가</h4> -->
 			<div class="messageWrap"></div>
-			<button class="popBtnClose">닫기</button>
+			<button class="pop_btn_close">닫기</button>
 			<button class="popBtnSubmit">확인</button>
 		</div>
 	</div>
@@ -418,6 +449,18 @@ $('#message_modal').neoModal({
 			// callback 팝업
 			$('.callback').click(function () {
 				$('#callback_modal').neoModal({
+					open: function() {
+						alert('modal open');
+					},
+					close: function() {
+						alert('modal close');
+					}
+				});
+			});
+
+			// add_callback 팝업
+			$('.add_callback').click(function () {
+				$('#add_callback_modal').neoModal({
 					callBackArray : [
 						{
 							className: 'popSubmitClose',
@@ -428,7 +471,7 @@ $('#message_modal').neoModal({
 						{
 							className: 'popSubmitClose1',
 							funcName: function() {
-								$('#callback_modal').neoModal('close');
+								$('#add_callback_modal').neoModal('close');
 								$('#basic_modal').neoModal();
 							}
 						}
