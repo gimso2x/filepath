@@ -86,6 +86,11 @@
 
 			if(options.scrollLock) {
 				$('html,body').css('overflow','hidden');
+				$('body').on('scroll touchmove mousewheel', function(e){
+					e.preventDefault();
+					e.stopPropagation();
+					return false;
+				});
 			}
 
 			if(options.dimLayer) {
@@ -137,6 +142,8 @@
 			}
 			if(!popupIdIndex) {
 				$('html,body').css('overflow','');
+				/* Enable scroll */
+				$('body').off('scroll touchmove mousewheel');
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
