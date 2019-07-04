@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>마크업가이드 - FORM</title>
+<!-- 가이드 css -->
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../common/css/shCoreDefault.css">
+<link rel="stylesheet" href="../pub/css/common.css">
+<script src="../pub/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-datepicker.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-monthpicker.js"></script>
+<script src="../pub/js/layout.js"></script>
+
+<script type="text/javascript" src=" ../common/js/shCore.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushXml.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushCss.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushJScript.js"></script>
+<script type="text/javascript" src=" ../common/js/guide.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all();
+	$(document).ready(function(){
+		$('.g-nav-snb').append(webSnb);
+		$('.g-nav-snb ul li').eq(3).addClass("active");
+		$('#g-aside .g-area-control a').trigger('click');
+	});
+</script>
+</head>
+<body>
+<div id="g-wrap">
+	<!-- aside -->
+	<div id="g-aside">
+		<!-- # 좌측컨텐츠 # -->
+		<div class="wrap-aside">
+			<!-- 사용자정보영역 -->
+			<div class="box-info">
+			</div>
+			<!-- 네비게이션 : SNB -->
+			<div class="g-nav-snb guide"></div>
+		</div>
+		<!-- # 컨트롤 # -->
+		<div class="g-area-control">
+			<a href="#none">좌측영역 펼침/닫기</a>
+		</div>
+	</div>
+	<!-- //aside -->
+
+	<div class="g-content">
+		<div class="g-box-basic">
+			<h2 class="g-tit-basic">FORM</h2>
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">INPUT (datepicker, monthpicker)</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<input type="text" class="datepicker">
+							<input type="text" class="datepicker_month">
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<!-- 데이터피커 -->
+								&lt;input type="text" class="datepicker"&gt;
+								<!-- 먼스피커 -->
+								&lt;input type="text" class="datepicker_month"&gt;
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								/* ./pub/common.css 참조 */
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">INPUT (radio,checkbox)</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<label class="input_check">
+								<input type="checkbox" id="mailChk">
+								<span class="label_text">체크박스 체크해제</span>
+							</label>
+
+							<label class="input_check">
+								<input type="checkbox" id="mailChk2" checked>
+								<span class="label_text">체크박스 체크</span>
+							</label>
+
+							<label class="input_radio" for="rdoSolar">
+								<input type="radio" id="rdoSolar" name="birthday_type" checked="">
+								<span class="label_text">라디오 체크</span>
+							</label>
+							<label class="input_radio" for="rdoLunar">
+								<input type="radio" id="rdoLunar" name="birthday_type">
+								<span class="label_text">라디오 체크해제</span>
+							</label>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<!-- 체크박스 -->
+								<label class="input_check">
+									<input type="checkbox" id="mailChk3">
+									<span class="label_text">체크박스 체크해제</span>
+								</label>
+		
+								<label class="input_check">
+									<input type="checkbox" id="mailChk4" checked>
+									<span class="label_text">체크박스 체크</span>
+								</label>
+
+								<!-- 라디오박스 -->
+								<label class="input_radio" for="rdoSolar1">
+									<input type="radio" id="rdoSolar1" name="birthday_type2" checked>
+									<span class="label_text">라디오 체크</span>
+								</label>
+								<label class="input_radio" for="rdoLunar1">
+									<input type="radio" id="rdoLunar1" name="birthday_type2">
+									<span class="label_text">라디오 체크해제</span>
+								</label>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								/* 체크박스 */
+								.input_check{position:relative;display:inline-block;min-height:20px;margin-left:12px;line-height:20px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle}
+								.input_check:first-child{margin-left:0}
+								.input_check &gt; input[type="checkbox"]{position:absolute;top:0;left:0;height:auto;line-height:normal;opacity:0}
+								.input_check &gt; input[type="checkbox"]:focus + .label_text{outline: 1px dotted;outline-color: #A6C7FF;outline:-webkit-focus-ring-color auto 5px;}
+								.input_check &gt; .label_text{display:inline-block;padding-left:23px;background:url(../img/common/ico_checkbox_off.png) no-repeat 0 0 / 20px;vertical-align:top;cursor:pointer;}
+								.input_check &gt; input[type="checkbox"]:checked + .label_text{background-image:url(../img/common/ico_checkbox_on.png)}
+								/* 라디오 */
+								.input_radio{position:relative;display:inline-block;min-height:23px;margin-left:12px;line-height:23px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle}
+								.input_radio:first-child{margin-left:0}
+								.input_radio &gt; input[type="radio"]{position:absolute;top:0;left:0;height:auto;line-height:normal;opacity:0}
+								.input_radio &gt; input[type="radio"]:focus + .label_text{outline: 1px dotted;outline-color: #A6C7FF;outline:-webkit-focus-ring-color auto 5px;}
+								.input_radio &gt; .label_text{display:inline-block;padding-left:28px;background:url(../img/common/ico_radio_off.png) no-repeat 0 0 / 22px;vertical-align:top;cursor:pointer;}
+								.input_radio &gt; input[type="radio"]:checked + .label_text{background-image:url(../img/common/ico_radio_on.png)}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">select css(IE 10 ~)</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<select class="select_css">
+								<option>This is a native select element</option>
+								<option>Apples</option>
+								<option>Bananas</option>
+								<option>Grapes</option>
+								<option>Oranges</option>
+							</select>
+
+							<select class="select_css" disabled>
+								<option>This is a native select element</option>
+								<option>Apples</option>
+								<option>Bananas</option>
+								<option>Grapes</option>
+								<option>Oranges</option>
+							</select>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<select class="select_css">
+									<option>This is a native select element</option>
+									<option>Apples</option>
+									<option>Bananas</option>
+									<option>Grapes</option>
+									<option>Oranges</option>
+								</select>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								.select_css{display:block;position:relative;width:100%;max-width:100%;box-sizing:border-box;margin:0;padding:13px 10px;border:1px solid #aaa;background:url(../img/common/ico_selectcss.png) no-repeat;background-position: calc(100% - 10px) center;font-size:16px;color:#000;-moz-appearance:none;-webkit-appearance:none;appearance:none;}
+								.select_css::after {position:absolute;top:0;right:0;content:'';display:inline-block;width:12px;height:7px;background:#666;}
+								.select_css::-ms-expand{display:none}
+								.select_css option{font-weight:normal}
+								/* Disabled styles */
+								.select_css:disabled,
+								.select_css[aria-disabled=true]{color:#aaa;background: #eee url(../img/common/ico_selectcss.png) no-repeat calc(100% - 10px) center;}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">FILE Upload</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<div class="wrap_file">
+								<input class="upload_name" value="" disabled="disabled">
+								<input type="file" id="ex_filename" class="upload_hidden">
+								<label for="ex_filename" class="">파일찾기</label>
+							</div>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<div class="wrap_file">
+									<input class="upload_name" value="" disabled="disabled">
+									<input type="file" id="ex_filename2" class="upload_hidden">
+									<label for="ex_filename2" class="">파일찾기</label>
+								</div>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								.wrap_file input[type="file"] {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;border: 0;visibility: hidden;}
+								.wrap_file label {cursor: pointer;border: 1px solid #999;background: #fff;}
+								.wrap_file .upload_name {display: inline-block;line-height: normal;vertical-align: middle;background-color: #fff;border: 1px solid #999;-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

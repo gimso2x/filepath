@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>마크업가이드 - TAB</title>
+<!-- 가이드 css -->
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../common/css/shCoreDefault.css">
+<link rel="stylesheet" href="../pub/css/common.css">
+<script src="../pub/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-datepicker.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-monthpicker.js"></script>
+<script src="../pub/js/layout.js"></script>
+<!-- //style -->
+<script type="text/javascript" src=" ../common/js/shCore.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushXml.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushCss.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushJScript.js"></script>
+<script type="text/javascript" src=" ../common/js/guide.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all();
+	$(document).ready(function(){
+		$('.g-nav-snb').append(webSnb);
+		$('.g-nav-snb ul li').eq(2).addClass("active");
+		$('#g-aside .g-area-control a').trigger('click');
+	});
+</script>
+</head>
+<body>
+<div id="g-wrap">
+	<!-- aside -->
+	<div id="g-aside">
+		<!-- # 좌측컨텐츠 # -->
+		<div class="wrap-aside">
+			<!-- 사용자정보영역 -->
+			<div class="box-info">
+			</div>
+			<!-- 네비게이션 : SNB -->
+			<div class="g-nav-snb guide"></div>
+		</div>
+		<!-- # 컨트롤 # -->
+		<div class="g-area-control">
+			<a href="#none">좌측영역 펼침/닫기</a>
+		</div>
+	</div>
+	<!-- //aside -->
+
+	<div class="g-content">
+		<div class="g-box-basic">
+			<h2 class="g-tit-basic">TAB</h2>
+
+			<!-- 탭그룹 -->
+			<div class="row">
+			<h3 class="g-tit-basic">Tab</h3>
+			<div class="tab-wrap g-tab-sample ui-tab">
+				<div class="tab-content">
+					<div class="g-tab-inner">
+						<!-- view -->
+						
+						<!-- //view -->
+					</div>
+				</div>
+				<div class="tab-content">
+					<div class="g-tab-inner">
+						<p class="on">HTML</p>
+						<pre class="syntax brush:html">
+
+						</pre>
+						<p>CSS</p>
+						<pre class="syntax brush:css">
+
+						</pre>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+			</div>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

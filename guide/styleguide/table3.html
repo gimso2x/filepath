@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>마크업가이드 - TABLE3</title>
+<!-- 가이드 css -->
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../common/css/shCoreDefault.css">
+<link rel="stylesheet" href="../pub/css/common.css">
+<script src="../pub/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-datepicker.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-monthpicker.js"></script>
+<script src="../pub/js/layout.js"></script>
+
+<script type="text/javascript" src=" ../common/js/shCore.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushXml.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushCss.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushJScript.js"></script>
+<script type="text/javascript" src=" ../common/js/guide.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all();
+	$(document).ready(function(){
+		$('.g-nav-snb').append(webSnb);
+		$('.g-nav-snb ul li').eq(6).addClass("active");
+		$('#g-aside .g-area-control a').trigger('click');
+	});
+</script>
+</head>
+<body>
+<div id="g-wrap">
+	<!-- aside -->
+	<div id="g-aside">
+		<!-- # 좌측컨텐츠 # -->
+		<div class="wrap-aside">
+			<!-- 사용자정보영역 -->
+			<div class="box-info">
+			</div>
+			<!-- 네비게이션 : SNB -->
+			<div class="g-nav-snb guide"></div>
+		</div>
+		<!-- # 컨트롤 # -->
+		<div class="g-area-control">
+			<a href="#none">좌측영역 펼침/닫기</a>
+		</div>
+	</div>
+	<!-- //aside -->
+
+	<div class="g-content">
+		<div class="g-box-basic">
+			<h2 class="g-tit-basic">TABLE3</h2>
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">TABLE3(카드형태게시판) - type1 4개씩</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<div class="table-card type1Box4">
+								<div class="card-boxWrap">
+									<!-- S: 반복부분 -->
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<!-- E: 반복부분 -->
+								</div>
+							</div>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<div class="table-card type1Box4">
+									<div class="card-boxWrap">
+										<!-- S: 반복부분 -->
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type1">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<!-- E: 반복부분 -->
+									</div>
+								</div>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								/* 카드형태 공통 */
+								.table-card * {box-sizing: border-box;}
+								.table-card {overflow: hidden;}
+								.table-card .card-boxWrap::after {content: '';display: block;clear: both;}
+								.table-card .card-boxWrap .box {float: left;}
+								.table-card .card-boxWrap .box &gt; dl {position: relative;border: 1px solid #dedede;border-radius: 6px;}
+								.table-card .card-boxWrap .box &gt; dl::after {content: '';display: block;clear: both;}
+
+								/* 카드형태 type1 4개 */
+								.table-card.type1Box4 .card-boxWrap {margin: -10px -6px;}
+								.table-card.type1Box4 .card-boxWrap .box {width: 25%;padding: 10px 6px;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl {padding: 18px 25px 15px 20px;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl dt, .table-card.type1Box4 .card-boxWrap .box &gt; dl dd {float: left;width: 50%;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl dt {width: 70%;height: 54px;font-size: 16px;color: #333;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl .status {width: 30%;text-align: right;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl .status span {margin-top: -5px;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl .stock {color: #333;font-size: 16px;font-weight: 700;}
+								.table-card.type1Box4 .card-boxWrap .box &gt; dl .price {color: #0070df;font-size: 18px;font-weight: 700;text-align: right;}
+
+								.btn-nego-type1 {display: inline-block;width: 60px;height: 30px;border-radius: 17px;background: #093569;color: #fff;font-size: 14px;line-height: 30px;text-align: center;}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">TABLE3(카드형태게시판) - type2 6개씩</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<div class="table-card type2Box6">
+								<div class="card-boxWrap">
+									<!-- S: 반복부분 -->
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-wait-type2">대기</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type2">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-stop-type2">정지</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl class="end">
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-end-type2">종료</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-wait-type3">대기</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type3">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-stop-type2">정지</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl class="end">
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-end-type2">종료</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<!-- E: 반복부분 -->
+								</div>
+							</div>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<div class="table-card type2Box6">
+									<div class="card-boxWrap">
+										<!-- S: 반복부분 -->
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-wait-type2">대기</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type2">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-stop-type2">정지</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl class="end">
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-end-type2">종료</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-wait-type3">대기</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type3">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-stop-type2">정지</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl class="end">
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-end-type2">종료</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<!-- E: 반복부분 -->
+									</div>
+								</div>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								/* 카드형태 공통 */
+								.table-card * {box-sizing: border-box;}
+								.table-card {overflow: hidden;}
+								.table-card .card-boxWrap::after {content: '';display: block;clear: both;}
+								.table-card .card-boxWrap .box {float: left;}
+								.table-card .card-boxWrap .box &gt; dl {position: relative;border: 1px solid #dedede;border-radius: 6px;}
+								.table-card .card-boxWrap .box &gt; dl::after {content: '';display: block;clear: both;}
+
+								/* 카드형태 type2 6개씩 */
+								.table-card.type2Box6 .card-boxWrap {margin: -8px -16px;}
+								.table-card.type2Box6 .card-boxWrap .box {width: 16.6667%;padding: 8px 16px;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl {padding: 34px 10px 23px;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl dt, .table-card.type2Box6 .card-boxWrap .box &gt; dl dd {float: left;width: 50%;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl dt {width: 100%;height: 37px;font-size: 14px;color: #333;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl .status {position: absolute;top: 5px;right: 6px;text-align: right;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl .stock {color: #333;font-size: 14px;font-weight: 700;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl .price {color: #0070df;font-size: 14px;font-weight: 700;text-align: right;}
+
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl.end {background: #f6f6f6;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl.end dt, .table-card.type2Box6 .card-boxWrap .box &gt; dl.end dd {color: #777;}
+								.table-card.type2Box6 .card-boxWrap .box &gt; dl.end .status span {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #e4e4e4;color: #545454;font-size: 14px;line-height: 20px;text-align: center;}
+
+								.btn-nego-type2 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #22afa1;color: #fff;font-size: 14px;line-height: 20px;text-align: center;}
+								.btn-nego-type3 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #ff9924;color: #fff;font-size: 14px;line-height: 20px;text-align: center;}
+								.btn-wait-type2 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #0070df;color: #fff;font-size: 14px;line-height: 20px;text-align: center;}
+								.btn-wait-type3 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #ec0018;color: #fff;font-size: 14px;line-height: 20px;text-align: center;}
+								.btn-stop-type2 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #555555;color: #fff;font-size: 14px;line-height: 20px;text-align: center;}
+								.btn-end-type2 {display: inline-block;width: 36px;height: 20px;border-radius: 15px;background: #e4e4e4;color: #545454;font-size: 14px;line-height: 20px;text-align: center;}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">TABLE3(카드형태게시판) - type3 6개씩</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<div class="table-card type3Box6">
+								<div class="card-boxWrap">
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-wait-type4">대기</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-wait-type5">대기</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type4">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-nego-type5">협상</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-stop-type4">정지</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+									<div class="box">
+										<dl>
+											<dt>아우름플래닛</dt>
+											<dd class="status"><span class="btn-end-type4">종료</span></dd>
+											<dd class="stock"><span>1,200</span>주</dd>
+											<dd class="price"><span>32,000</span>원</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<div class="table-card type3Box6">
+									<div class="card-boxWrap">
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-wait-type4">대기</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-wait-type5">대기</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type4">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-nego-type5">협상</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-stop-type4">정지</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+										<div class="box">
+											<dl>
+												<dt>아우름플래닛</dt>
+												<dd class="status"><span class="btn-end-type4">종료</span></dd>
+												<dd class="stock"><span>1,200</span>주</dd>
+												<dd class="price"><span>32,000</span>원</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								/* 카드형태 공통 */
+								.table-card * {box-sizing: border-box;}
+								.table-card {overflow: hidden;}
+								.table-card .card-boxWrap::after {content: '';display: block;clear: both;}
+								.table-card .card-boxWrap .box {float: left;}
+								.table-card .card-boxWrap .box &gt; dl {position: relative;border: 1px solid #dedede;border-radius: 6px;}
+								.table-card .card-boxWrap .box &gt; dl::after {content: '';display: block;clear: both;}
+
+								/* 카드형태 type3 6개씩 */
+								.table-card.type3Box6 .card-boxWrap {margin: -10px -7px;}
+								.table-card.type3Box6 .card-boxWrap .box {width: 16.6667%;padding: 10px 7px;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl {padding: 45px 10px 16px;border-radius: 0;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl dt, .table-card.type3Box6 .card-boxWrap .box &gt; dl dd {float: left;width: 100%;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl dt {height: 35px;color: #333;font-size: 16px;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl .status {position: absolute;top: -1px;left: -1px;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl .stock {color: #333;font-size: 16px;font-weight: 700;text-align: right;margin-bottom: 12px;}
+								.table-card.type3Box6 .card-boxWrap .box &gt; dl .price {color: #0070df;font-size: 18px;font-weight: 700;text-align: right;}
+
+								.btn-wait-type4 {display: inline-block;width: 49px;height: 29px;background: #0070df;color: #fff;font-size: 14px;line-height: 29px;text-align: center;}
+								.btn-wait-type5 {display: inline-block;width: 49px;height: 29px;background: #ff394d;color: #fff;font-size: 14px;line-height: 29px;text-align: center;}
+								.btn-nego-type4 {display: inline-block;width: 49px;height: 29px;background: #143f97;color: #fff;font-size: 14px;line-height: 29px;text-align: center;}
+								.btn-nego-type5 {display: inline-block;width: 49px;height: 29px;background: #ff9100;color: #fff;font-size: 14px;line-height: 29px;text-align: center;}
+								.btn-stop-type4 {display: inline-block;width: 49px;height: 29px;background: #777777;color: #fff;font-size: 14px;line-height: 29px;text-align: center;}
+								.btn-end-type4 {display: inline-block;width: 49px;height: 29px;background: #e6e6e6;color: #333;font-size: 14px;line-height: 29px;text-align: center;}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>마크업가이드 - TABLE2</title>
+<!-- 가이드 css -->
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="../common/css/shCoreDefault.css">
+<link rel="stylesheet" href="../pub/css/common.css">
+<script src="../pub/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-datepicker.min.js"></script>
+<script src="../pub/js/vendor/jquery-ui-monthpicker.js"></script>
+<script src="../pub/js/layout.js"></script>
+
+<script type="text/javascript" src=" ../common/js/shCore.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushXml.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushCss.js"></script>
+<script type="text/javascript" src=" ../common/js/shBrushJScript.js"></script>
+<script type="text/javascript" src=" ../common/js/guide.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all();
+	$(document).ready(function(){
+		$('.g-nav-snb').append(webSnb);
+		$('.g-nav-snb ul li').eq(5).addClass("active");
+		$('#g-aside .g-area-control a').trigger('click');
+
+		$(document).on('click', '.table-accordion dt a', function(e) {
+			e.preventDefault();
+
+			var _accordionDl = $(this).closest('dl');
+			$('.table-accordion dl').removeClass('active');
+			$('.table-accordion dd').slideUp('400');
+			if(!_accordionDl.children('dd').is(":visible")){
+				_accordionDl.addClass('active');
+				_accordionDl.children('dd').slideDown('400');
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<div id="g-wrap">
+	<!-- aside -->
+	<div id="g-aside">
+		<!-- # 좌측컨텐츠 # -->
+		<div class="wrap-aside">
+			<!-- 사용자정보영역 -->
+			<div class="box-info">
+			</div>
+			<!-- 네비게이션 : SNB -->
+			<div class="g-nav-snb guide"></div>
+		</div>
+		<!-- # 컨트롤 # -->
+		<div class="g-area-control">
+			<a href="#none">좌측영역 펼침/닫기</a>
+		</div>
+	</div>
+	<!-- //aside -->
+
+	<div class="g-content">
+		<div class="g-box-basic">
+			<h2 class="g-tit-basic">TABLE2</h2>
+
+			<!-- 탭그룹 -->
+			<div class="row">
+				<h3 class="g-tit-basic">TABLE2(아코디언게시판)</h3>
+				<div class="tab-wrap g-tab-sample ui-tab">
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<!-- view -->
+							<div class="table-accordion">
+								<div class="boardTotalcount">전체 <span>24</span>건</div>
+								<dl>
+									<dt>
+										<ul>
+											<li>Q</li>
+											<li><a href="javascript:void(0);">누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?</a></li>
+											<li class="img-arrow">상세 펼치기</li>
+										</ul>
+									</dt>
+									<dd>자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. </dd>
+								</dl>
+								<dl>
+									<dt>
+										<ul>
+											<li>Q</li>
+											<li><a href="javascript:void(0);">누구나 이용할 수 있나요?</a></li>
+											<li class="img-arrow">상세 펼치기</li>
+										</ul>
+									</dt>
+									<dd>자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. </dd>
+								</dl>
+							</div>
+							<!-- //view -->
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="g-tab-inner">
+							<p class="on">HTML</p>
+							<pre class="syntax brush:html">
+								<div class="table-accordion">
+									<div class="boardTotalcount">전체 <span>24</span>건</div>
+									<dl>
+										<dt>
+											<ul>
+												<li>Q</li>
+												<li><a href="javascript:void(0);">누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?누구나 이용할 수 있나요?</a></li>
+												<li class="img-arrow">상세 펼치기</li>
+											</ul>
+										</dt>
+										<dd>자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. </dd>
+									</dl>
+									<dl>
+										<dt>
+											<ul>
+												<li>Q</li>
+												<li><a href="javascript:void(0);">누구나 이용할 수 있나요?</a></li>
+												<li class="img-arrow">상세 펼치기</li>
+											</ul>
+										</dt>
+										<dd>자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. 자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다.  자주 하는 문의에 찾을수 없는 답변은 1:1 문의를 통해 궁금한 점을 보내 주시기 바랍니다. </dd>
+									</dl>
+								</div>
+							</pre>
+							<p>CSS</p>
+							<pre class="syntax brush:css">
+								.table-accordion .boardTotalcount {padding: 0 0 18px;color: #444;font-size: 18px;font-weight: 700;}
+								.table-accordion .boardTotalcount span {color: #000;}
+								.table-accordion dl {border-bottom: 1px solid #e5e5e5;}
+								.table-accordion dl:nth-of-type(1) {border-top: 1px solid #000;}
+								.table-accordion dt ul {display: table;width: 100%;position: relative;table-layout: fixed;}
+								.table-accordion dt ul li {display: table-cell;}
+								.table-accordion dt ul li:nth-child(1) {width: 64px;font-size: 24px;letter-spacing: -0.6px;text-align: center;vertical-align: top;padding-top: 25px;}
+								.table-accordion dt ul li:nth-child(2) {width: 100%;position: relative;z-index: 2;}
+								.table-accordion dt ul li:nth-child(2) a {display: block;font-size: 18px;color: #000;height: 80px;padding-right: 50px;line-height: 80px;position: relative;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100%;}
+								.table-accordion dt ul .img-arrow {position: absolute;top: 50%;right: 17px;text-indent: -9999px;font-size: 0;width: 19px;height: 12px;margin-top: -6px;background: url(../images/ico_accordion_off.png) no-repeat center;user-select: none;z-index: 1;}
+								.table-accordion dd {display: none;background: #f4f4f4;padding: 25px 124px 25px 64px;font-size: 16px;line-height: 34px;}
+								.table-accordion dl.active dt {box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);border-bottom: 1px solid #e5e5e5;}
+								.table-accordion dl.active ul li:nth-child(1) {font-weight: 700;}
+								.table-accordion dl.active ul .img-arrow {background-image: url(../images/ico_accordion_on.png);}
+							</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //탭그룹 -->
+
+		</div>
+	</div>
+</div>
+</body>
+</html>
