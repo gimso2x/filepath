@@ -8,18 +8,19 @@
     <style>
 
     /* 체크박스 */
-    .input-check {position:relative;display:inline-block;min-height:20px;margin-left:12px;line-height:20px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle;}
-    .input-check:first-child {margin-left:0;}
-    .input-check>input[type="checkbox"] {position:absolute;top:0;left: 0;height:auto;line-height:normal;opacity:0;}
-    .input-check>.label-text {display:inline-block; padding-left:23px; vertical-align:top;background:url('../img/ico_checkbox_off.png') no-repeat 0 0 / 20px;}
-    .input-check>input[type="checkbox"]:checked + .label-text {background:url('../img/ico_checkbox_on.png') no-repeat 0 0 / 20px;}
-    
+    .input_check{position:relative;display:inline-block;min-height:20px;margin-left:12px;line-height:20px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle}
+    .input_check:first-child{margin-left:0}
+    .input_check > input[type="checkbox"]{position:absolute;top:0;left:0;height:auto;line-height:normal;opacity:0}
+    .input_check > input[type="checkbox"]:focus + .label_text{outline: 1px dotted;outline-color: #A6C7FF;outline:-webkit-focus-ring-color auto 5px;}
+    .input_check > .label_text{display:inline-block;padding-left:23px;background:url(../img/ico_checkbox_off.png) no-repeat 0 0 / 20px;vertical-align:top;cursor:pointer;}
+    .input_check > input[type="checkbox"]:checked + .label_text{background-image:url(../img/ico_checkbox_on.png)}
     /* 라디오 */
-    .input-radio {position:relative; display:inline-block;min-height:23px;margin-left:12px;line-height:23px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle;}
-    .input-radio:first-child {margin-left:0;}
-    .input-radio>input[type="radio"] {position:absolute;top:0;left: 0;height:auto;line-height:normal;opacity:0;}
-    .input-radio>.label-text {display:inline-block; padding-left:28px; vertical-align:top;background:url('../img/ico_radio_off.png') no-repeat 0 0 / 23px;}
-    .input-radio>input[type="radio"]:checked + .label-text {background:url('../img/ico_radio_on.png') no-repeat 0 0 / 23px;}
+    .input_radio{position:relative;display:inline-block;min-height:23px;margin-left:12px;line-height:23px;color:#666;font-size:14px;font-weight:normal;vertical-align:middle}
+    .input_radio:first-child{margin-left:0}
+    .input_radio > input[type="radio"]{position:absolute;top:0;left:0;height:auto;line-height:normal;opacity:0}
+    .input_radio > input[type="radio"]:focus + .label_text{outline: 1px dotted;outline-color: #A6C7FF;outline:-webkit-focus-ring-color auto 5px;}
+    .input_radio > .label_text{display:inline-block;padding-left:28px;background:url(../img/ico_radio_off.png) no-repeat 0 0 / 22px;vertical-align:top;cursor:pointer;}
+    .input_radio > input[type="radio"]:checked + .label_text{background-image:url(../img/ico_radio_on.png)}
     </style>
 </head>
 <body>
@@ -28,24 +29,24 @@
 	<!-- // historyBack -->
 
     <!-- 체크박스 -->
-    <label class="input-check">
-        <input type="checkbox" id="mailChk3">
-        <span class="label-text">체크박스 체크해제</span>
+    <label class="input_check">
+        <input type="checkbox" id="mailChk">
+        <span class="label_text">체크박스 체크해제</span>
     </label>
-    
-    <label class="input-check">
-        <input type="checkbox" id="mailChk4" checked="">
-        <span class="label-text">체크박스 체크</span>
+
+    <label class="input_check">
+        <input type="checkbox" id="mailChk2" checked>
+        <span class="label_text">체크박스 체크</span>
     </label>
-    
+
     <!-- 라디오박스 -->
-    <label class="input-radio" for="rdoSolar1">
-        <input type="radio" id="rdoSolar1" name="birthday_type2" checked="">
-        <span class="label-text">라디오 체크</span>
+    <label class="input_radio" for="rdoSolar">
+        <input type="radio" id="rdoSolar" name="birthday_type" checked="">
+        <span class="label_text">라디오 체크</span>
     </label>
-    <label class="input-radio" for="rdoLunar1">
-        <input type="radio" id="rdoLunar1" name="birthday_type2">
-        <span class="label-text">라디오 체크해제</span>
+    <label class="input_radio" for="rdoLunar">
+        <input type="radio" id="rdoLunar" name="birthday_type">
+        <span class="label_text">라디오 체크해제</span>
     </label>
 </body>
 </html>

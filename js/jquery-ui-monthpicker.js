@@ -1,4 +1,23 @@
 /*monthpicker*/
+var keycode = $.ui.keyCode = {
+	BACKSPACE: 8,
+	COMMA: 188,
+	DELETE: 46,
+	DOWN: 40,
+	END: 35,
+	ENTER: 13,
+	ESCAPE: 27,
+	HOME: 36,
+	LEFT: 37,
+	PAGE_DOWN: 34,
+	PAGE_UP: 33,
+	PERIOD: 190,
+	RIGHT: 39,
+	SPACE: 32,
+	TAB: 9,
+	UP: 38
+};
+
 (function($) {
     $.extend($.ui, {
         monthpicker: {
@@ -732,7 +751,31 @@
             }
             var date = (month ? (typeof month == 'object' ? month : this._daylightSavingAdjust(new Date(year, month, 1))) : this._daylightSavingAdjust(new Date(inst.currentYear, inst.currentMonth, 1)));
             return this.formatDate(this._get(inst, 'dateFormat'), date, this._getFormatConfig(inst))
-        }
+        },
+        /* Handle keystrokes. */
+        _doKeyDown: function( event ) {
+            var inst = $.monthpicker._getInst( event.target ),
+                handled = true;
+
+            inst._keyEvent = true;
+            if ( $.monthpicker._monthpickerShowing ) {
+                switch ( event.keyCode ) {
+                    case 9: $.monthpicker._hideMonthpicker();
+                            handled = false;
+                            break; // hide on tab out
+                    default: handled = false;
+                }
+            } else if ( event.keyCode === 36 && event.ctrlKey ) { // display the date picker on ctrl+home
+                $.monthpicker._showDatepicker( this );
+            } else {
+                handled = false;
+            }
+
+            if ( handled ) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        },
     });
 
     function extendRemove(target, props) {
