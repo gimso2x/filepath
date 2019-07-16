@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<style>
 		.pop_dim_wrap { /* necessary css*/ display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; width: 100%; height: 100%;overflow: auto;}
-		#pop_wrap { /* control css */ width: 350px;background-color: #fff;border: 1px solid #e3e3e3;border-radius: 4px;padding: 20px;box-shadow: inset 0 1px 1px rgba(0,0,0,.05);}
+		.pop_wrap { /* control css */ width: 350px;background-color: #fff;border: 1px solid #e3e3e3;border-radius: 4px;padding: 20px;box-shadow: inset 0 1px 1px rgba(0,0,0,.05);}
 
 		/* sample css */
 		body {color: #333;}
@@ -79,7 +79,7 @@
 		},
 		show: function(el) {
 			var $el = $(el);
-			var childWrap = $el.children('#pop_wrap');
+			var childWrap = $el.children('.pop_wrap');
 
 			 // Remember which element had focus before opening a popup
 			$el.data('focusedelementbeforepopup', document.activeElement);
@@ -363,7 +363,7 @@ $('#message_modal').neoModal({
 
 	<!-- 레이어 팝업-->
 	<div id="basic_modal" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<h4>Basic Modal</h4>
 			Basic Modal 내용
 			<button class="pop_btn_close">닫기</button>
@@ -373,14 +373,14 @@ $('#message_modal').neoModal({
 	</div>
 
 	<div id="new_popup" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<h4>message 내용 추가</h4>
 			<button class="pop_btn_close">닫기</button>
 		</div>
 	</div>
 
 	<div id="option_modal" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<h4>Option Modal</h4>
 			Option Modal 내용
 			<button class="pop_btn_close">닫기</button>
@@ -389,7 +389,7 @@ $('#message_modal').neoModal({
 	</div>
 
 	<div id="callback_modal" class="pop_dim_wrap">
-			<div id="pop_wrap">
+			<div class="pop_wrap">
 				<h4>Callback Modal</h4>
 				Callback Modal 내용
 				<button class="pop_btn_close">닫기</button>
@@ -398,7 +398,7 @@ $('#message_modal').neoModal({
 		</div>
 
 	<div id="add_callback_modal" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<h4>Add Callback Modal</h4>
 			Add Callback Modal 내용
 			<button class="pop_btn_close">닫기</button>
@@ -410,7 +410,7 @@ $('#message_modal').neoModal({
 	</div>
 
 	<div id="message_modal" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<h4>message 내용 추가</h4>
 			<div class="messageWrap"></div>
 			<button class="pop_btn_close">닫기</button>
@@ -418,7 +418,7 @@ $('#message_modal').neoModal({
 	</div>
 
 	<div id="message_modal_sample" class="pop_dim_wrap">
-		<div id="pop_wrap">
+		<div class="pop_wrap">
 			<!-- <h4>message 내용 추가</h4> -->
 			<div class="messageWrap"></div>
 			<button class="pop_btn_close">닫기</button>
