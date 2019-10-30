@@ -7,7 +7,7 @@
 	<title>jquery_modal</title>
 	<link rel="stylesheet" href="../css/reset.css">
 	<style>
-		.pop_dim_wrap { /* necessary css*/ display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; width: 100%; height: 100%;overflow: auto;}
+		.pop_dim_wrap { /* necessary css*/ display: none;}
 		.pop_wrap { /* control css */ width: 350px;background-color: #fff;border: 1px solid #e3e3e3;border-radius: 4px;padding: 20px;box-shadow: inset 0 1px 1px rgba(0,0,0,.05);}
 
 		/* sample css */
@@ -85,12 +85,15 @@
 			$el.data('focusedelementbeforepopup', document.activeElement);
 
 			if(options.scrollLock) {
-				$('html,body').css('overflow','hidden');
+				$('body').css('overflow','hidden');
 			}
 
 			if(options.dimLayer) {
-				$el.css('background', options.dimBackColor);
+				$el.css({ position: 'fixed', top: 0, right: 0, left: 0, bottom: 0, width: '100%', height: '100%',overflow: 'auto', background: options.dimBackColor})
+			} else {
+				$el.css({ position: 'fixed', top: 0, right: 0, left: 0, bottom: 0, width: '100%', height: '100%',overflow: 'auto',})
 			}
+			
 
 			// new pop, z-index ++
 			if(visiblePopupsArray.length) {
@@ -102,7 +105,7 @@
 			}
 
 			if(options.message !== null) {
-				childWrap.children('.messageWrap').html(options.message);
+				childWrap.find('.messageWrap').html(options.message);
 			}
 			
 			visiblePopupsArray.push(el.id);
@@ -111,14 +114,19 @@
 			$el.fadeIn(options.speed).focus();
 
 			// position center
-			childWrap.css("position","absolute");
-			childWrap.css("top", "50%");
-			childWrap.css("left", "50%");
-
-			if (childWrap.outerHeight() < $(document).height() || childWrap.outerWidth() < $(document).width()) {
-				childWrap.css({ marginTop: -childWrap.outerHeight() / 2, marginLeft: -childWrap.outerWidth() / 2 });
+			//레이어팝업이 문서보다 길경우
+			if(childWrap.height() > $(window).height()) {
+				childWrap.css({
+					position: 'relative',
+					margin: '30px auto'
+				})
 			} else {
-				childWrap.css({ top: 0, left: 0 });
+				childWrap.css({
+					position: 'absolute',
+					top: '50%', left: '50%',
+					marginLeft: (-(childWrap.width() / 2)),
+					marginTop: (-(childWrap.height() / 2)),
+				})
 			}
 
 			var openCallback = options.open;
@@ -136,18 +144,21 @@
 				return;
 			}
 			if(!popupIdIndex) {
-				$('html,body').css('overflow','');
+				$('body').css('overflow','');
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
-			$el.fadeOut(options.speed);
+			$el.fadeOut(options.speed).removeAttr('tabindex style');
+
 
 			// Focus back on saved element
-			setTimeout(function() {
-				if ($($el.data('focusedelementbeforepopup')).is(':visible')) {
-					$el.data('focusedelementbeforepopup').focus();
-				}
-			}, 0);
+			if(options.autoFocus) {
+				setTimeout(function() {
+					if ($($el.data('focusedelementbeforepopup')).is(':visible')) {
+						$el.data('focusedelementbeforepopup').focus();
+					}
+				}, 0);
+			}
 
 			var closeCallback = options.close;
 			if ($.isFunction(closeCallback)) {
@@ -256,7 +267,8 @@
 		speed: 400, // modal fadeIn speed
 		scrollLock: true, // parent scroll lock
 		closeButton: 'pop_btn_close', // closebutton class
-		minZindex: 99999,
+		autoFocus: true, //popup 닫을때 클릭한버튼으로 자동 포커스
+		minZindex: 4900,
 		callBackArray: null,
 		/* callBackArray : [
 			{
@@ -357,6 +369,10 @@ $('#message_modal').neoModal({
 	<button class="message_sample">Message_sample</button>
 	<button class="message_sample2">Message_sample2</button>
 
+	<!-- Long Model -->
+	<h4>Long Modal</h4>
+	<button class="long_modal">Long Modal</button>
+
 </div>
 
 	
@@ -423,6 +439,14 @@ $('#message_modal').neoModal({
 			<div class="messageWrap"></div>
 			<button class="pop_btn_close">닫기</button>
 			<button class="popBtnSubmit">확인</button>
+		</div>
+	</div>
+
+
+	<div id="long_modal" class="pop_dim_wrap">
+		<div class="pop_wrap" style="height:1500px;">
+			<button class="pop_btn_close">닫기</button>
+			윈도우영역 < 팝업영역일때
 		</div>
 	</div>
 	<!--// 레이어 팝업-->
@@ -513,6 +537,10 @@ $('#message_modal').neoModal({
 					],
 				})
 			});
+
+			$('.long_modal').click(function() {
+				$('#long_modal').neoModal();
+			})
 		});
 	</script>
 </body>
