@@ -74,9 +74,6 @@
 	var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 
 	var methods = {
-		_init: function(el) {
-			this.show(el);
-		},
 		show: function(el) {
 			var $el = $(el);
 			var childWrap = $el.children('.pop_wrap');
@@ -257,7 +254,7 @@
 			if (typeof customOptions === 'object') { // e.g. $('#popup').popup({'color':'blue'})
 				var opt = $.extend({}, newDefaults, customOptions);
 				options = opt;
-				methods._init(this);
+				methods.show(this);
 
 			} else if (typeof customOptions === 'string') { // e.g. $('#popup').popup('close')
 				methods[customOptions](this);
@@ -265,18 +262,18 @@
 
 			} else { // e.g. $('#popup').popup()
 				options = newDefaults;
-				methods._init(this);
+				methods.show(this);
 
 			}
 		});
 	};
 
 	$.fn.neoModal.defaults = {
-		dimLayer: true,
-		dimBackColor: 'rgba(0, 0, 0, 0.3)',
-		dimClickClose: true, // dim click close
+		dimLayer: true, //뒷배경 사용여부
+		dimBackColor: 'rgba(0, 0, 0, 0.3)', //뒷배경 색깔 지정
+		dimClickClose: true, // dim click close 뒷배경 클릭시 닫힘여부
 		speed: 400, // modal fadeIn speed
-		scrollLock: true, // parent scroll lock
+		scrollLock: true, // parent scroll lock body 스크롤 막기
 		closeButton: 'pop_btn_close', // closebutton class
 		autoFocus: true, //popup 닫을때 클릭한버튼으로 자동 포커스
 		focusCloseElement: null, //popup 닫을때 갈 포커스 강제지정 ex #pop_abcd, .class
@@ -318,6 +315,22 @@
 		레이어내용
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+
+<!-- Option -->
+		<h4>Option</h4>
+		<pre><code>{
+	dimLayer: true, //뒷배경 사용여부
+	dimBackColor: 'rgba(0, 0, 0, 0.3)', //뒷배경 색지정
+	dimClickClose: true, // dim click close, 뒷배경 클릭시 레이어팝업 닫힐지 여부
+	speed: 400, // modal fadeIn speed 모달 속도 지정
+	scrollLock: true, // parent scroll lock - body 스크롤 막기여부
+	closeButton: 'pop_btn_close', // closebutton class
+	autoFocus: true, //popup 닫을때 클릭한버튼으로 자동 포커스
+	focusCloseElement: null, //popup 닫을때 갈 포커스 강제지정 ex #pop_abcd, .class
+	minZindex: 4900, //레이어팝업 z-index 지정
+	callBackArray: null, //레이어 팝업 안 콜백 버튼 지정 밑에 참조
+	message: null, // message: 'Lorem ipsum dolor sit amet'
+};</code></pre>
 
 <!-- Basic Model -->
 		<h4>Basic Modal</h4>
