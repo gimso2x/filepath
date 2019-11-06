@@ -149,7 +149,18 @@
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
 			$el.fadeOut(options.speed).removeAttr('tabindex style');
-
+			
+			//클릭시 focus 갈 요소
+			if(options.focusCloseElement) {
+				options.autoFocus = false;
+				setTimeout(function() {
+					if ($(options.focusCloseElement).is(':visible')) {
+						$(options.focusCloseElement).focus();
+					} else {
+						console.log('layerpopup - ' + options.focusCloseElement + ' 지정한 요소가 없습니다');
+					}
+				}, 0);
+			}
 
 			// Focus back on saved element
 			if(options.autoFocus) {
@@ -268,6 +279,7 @@
 		scrollLock: true, // parent scroll lock
 		closeButton: 'pop_btn_close', // closebutton class
 		autoFocus: true, //popup 닫을때 클릭한버튼으로 자동 포커스
+		focusCloseElement: null, //popup 닫을때 갈 포커스 강제지정 ex #pop_abcd, .class
 		minZindex: 4900,
 		callBackArray: null,
 		/* callBackArray : [
@@ -363,7 +375,7 @@ $('#basic_modal').neoModal('close');</code></pre>
 	
 	<pre><code>//message의 경우 &lt;div class=&quot;messageWrap&quot;&gt;&lt;/div&gt; 필요
 $('#message_modal').neoModal({
-	message: '&lt;div&gt;&lt;span style=&quot;color:red&quot;&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xB0B4;&#xC6A9;&lt;br&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xC54C;&#xB9BC;&lt;/span&gt;tests',
+	message: '&lt;div&gt;&lt;span style=&quot;color:red&quot;&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xB0B4;&#xC6A9;&lt;br&gt;&#xD14C;&#xC2A4;&#xD2B8;&#xC54C;&#xB9BC;&lt;/span&gt;&lt;/div&gt;',
 });</code></pre>
 
 	<button class="message_sample">Message_sample</button>
