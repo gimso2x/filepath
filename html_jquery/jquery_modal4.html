@@ -83,6 +83,12 @@
 
 			if(options.scrollLock) {
 				$('body').css('overflow','hidden');
+				$el.on('scroll touchmove mousewheel', function(e){
+					console.log(5);
+					e.preventDefault();
+					e.stopPropagation();
+					return false;
+				});
 			}
 
 			if(options.dimLayer) {
@@ -471,7 +477,7 @@ $('#message_modal').neoModal({
 	<div id="long_modal" class="pop_dim_wrap">
 		<div class="pop_wrap" style="height:1500px;">
 			<button class="pop_btn_close">닫기</button>
-			윈도우영역 < 팝업영역일때
+			윈도우영역 &lt; 팝업영역일때
 		</div>
 	</div>
 	<!--// 레이어 팝업-->
