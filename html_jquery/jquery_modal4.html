@@ -83,11 +83,8 @@
 
 			if(options.scrollLock) {
 				$('body').css('overflow','hidden');
-				$el.on('scroll touchmove mousewheel', function(e){
-					console.log(5);
-					e.preventDefault();
+				$el.on('scroll touchmove mousewheel', function(e) {
 					e.stopPropagation();
-					return false;
 				});
 			}
 
@@ -148,6 +145,9 @@
 			}
 			if(!popupIdIndex) {
 				$('body').css('overflow','');
+			}
+			if(options.scrollLock) {
+				$el.off('scroll touchmove mousewheel');
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
