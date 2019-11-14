@@ -87,7 +87,7 @@
 				//iphone scroll 처리
 				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					$('html').css('overflow', 'hidden');
+					$('html').css({'overflow':'hidden','height':'100%'});
 				}
 			}
 
