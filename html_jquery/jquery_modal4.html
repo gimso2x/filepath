@@ -87,7 +87,7 @@
 				//iphone scroll 처리
 				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					$('html').css({'overflow':'hidden','height':'100%'});
+					$('html').css({'overflow':'hidden','height':'100%',position:'fixed'});
 				}
 			}
 
@@ -150,7 +150,7 @@
 				$('body').css('overflow','');
 				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					$('html').css('overflow', '');
+					$('html').removeAttr('style');
 				}
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
