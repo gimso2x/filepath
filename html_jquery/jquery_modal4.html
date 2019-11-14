@@ -88,9 +88,7 @@
 				//iphone scroll 처리
 				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					
 					iosPosY = $(window).scrollTop();
-					console.log(iosPosY);
 					$('html').css({'overflow':'hidden','height':'100%',position:'fixed'});
 					$('body').css({position:'relative',top:-iosPosY});
 				}
@@ -158,6 +156,7 @@
 				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
 					$('html, body').removeAttr('style');
+					iosPosY = $(window).scrollTop(iosPosY);
 				}
 				//iphone scroll 처리
 			}
