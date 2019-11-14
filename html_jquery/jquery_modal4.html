@@ -8,9 +8,8 @@
 	<title>jquery_modal</title>
 	<link rel="stylesheet" href="../css/reset.css">
 	<style>
-		.pop_dim_wrap { /* necessary css*/ display: none;-webkit-overflow-scrolling:touch;}
+		.pop_dim_wrap { /* necessary css*/ display: none;}
 		.pop_wrap { /* control css */ width: 350px;background-color: #fff;border: 1px solid #e3e3e3;border-radius: 4px;padding: 20px;box-shadow: inset 0 1px 1px rgba(0,0,0,.05);}
-		.not_scroll{ position: fixed; overflow: hidden; width: 100%; height: 100%;}
 
 		/* sample css */
 		body {color: #333;}
@@ -84,8 +83,7 @@
 			$el.data('focusedelementbeforepopup', document.activeElement);
 
 			if(options.scrollLock) {
-				// $('body').css('overflow','hidden');
-				$("html, body").addClass("not_scroll");
+				$('body').css({overflow:'hidden', position:'relative'})
 			}
 
 			if(options.dimLayer) {
@@ -144,8 +142,7 @@
 				return;
 			}
 			if(!popupIdIndex) {
-				// $('body').css('overflow','');
-				$("html, body").removeClass("not_scroll");
+				$('body').css('overflow','');
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
