@@ -73,7 +73,6 @@
 	var options = {};
 	var visiblePopupsArray = [];
 	var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
-	var iosPosY = '';
 
 	var methods = {
 		show: function(el) {
@@ -85,14 +84,6 @@
 
 			if(options.scrollLock) {
 				$('body').css('overflow','hidden');
-				//iphone scroll 처리
-				var varUA = navigator.userAgent.toLowerCase();
-				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					iosPosY = $(window).scrollTop();
-					$('html').css({'overflow':'hidden','height':'100%',position:'fixed'});
-					$('body').css({position:'relative',top:-iosPosY});
-				}
-				//iphone scroll 처리
 			}
 
 			if(options.dimLayer) {
@@ -152,13 +143,6 @@
 			}
 			if(!popupIdIndex) {
 				$('body').css('overflow','');
-				//iphone scroll 처리
-				var varUA = navigator.userAgent.toLowerCase();
-				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
-					$('html, body').removeAttr('style');
-					iosPosY = $(window).scrollTop(iosPosY);
-				}
-				//iphone scroll 처리
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
