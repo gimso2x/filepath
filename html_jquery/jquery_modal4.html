@@ -83,7 +83,12 @@
 			$el.data('focusedelementbeforepopup', document.activeElement);
 
 			if(options.scrollLock) {
-				$('body').css({overflow:'hidden', position:'relative'})
+				$('body').css('overflow','hidden');
+				//iphone scroll 처리
+				var varUA = navigator.userAgent.toLowerCase();
+				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
+					$('html').css('overflow', 'hidden');
+				}
 			}
 
 			if(options.dimLayer) {
@@ -143,6 +148,10 @@
 			}
 			if(!popupIdIndex) {
 				$('body').css('overflow','');
+				var varUA = navigator.userAgent.toLowerCase();
+				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
+					$('html').css('overflow', '');
+				}
 			}
 			visiblePopupsArray.splice(popupIdIndex, 1);
 			// layer fadeOut
