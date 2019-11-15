@@ -86,7 +86,9 @@
 
 			if(options.scrollLock) {
 				$('body').css('overflow','hidden');
-				bodyScrollLock.disableBodyScroll(el);
+				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
+					bodyScrollLock.disableBodyScroll(el);
+				}
 			}
 
 			if(options.dimLayer) {
