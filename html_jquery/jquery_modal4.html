@@ -86,6 +86,7 @@
 
 			if(options.scrollLock) {
 				$('body').css('overflow','hidden');
+				var varUA = navigator.userAgent.toLowerCase();
 				if(varUA.match('iphone') != null || varUA.match('ipad') != null) {
 					bodyScrollLock.disableBodyScroll(el);
 				}
