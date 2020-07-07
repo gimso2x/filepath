@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>css_effect_move</title>
+	<style>
+		.example_div_wrap{width: 400px;height: 400px;text-align: center;padding: 30px 0}
+		.example_div_wrap > div {position: relative;width: 100px;height: 100px;background: #000;}
+
+		.effect {
+			opacity:0;
+		}
+
+		.effect--active {
+			opacity:1;
+			transform: translateX(0) !important;
+			transform: translateY(0);
+		}
+
+		.effect--up {
+			transform: translateY(50px);
+			transition:transform 1.2s cubic-bezier(.165,.84,.44,1),opacity 1.2s cubic-bezier(.165,.84,.44,1);
+		}
+		.effect--up.effect--active {
+			opacity:1;
+			transform: translateY(0);
+		}
+
+		.effect--down {
+			transform: translateY(-50px);
+			transition:transform 1.2s cubic-bezier(.165,.84,.44,1),opacity 1.2s cubic-bezier(.165,.84,.44,1);
+		}
+
+		.effect--left {
+			transform: translateX(-50px);
+			transition:transform 1.2s cubic-bezier(.165,.84,.44,1),opacity 1.2s cubic-bezier(.165,.84,.44,1);
+		}
+
+		.effect--right {
+			transform: translateX(50px);
+			transition:transform 1.2s cubic-bezier(.165,.84,.44,1),opacity 1.2s cubic-bezier(.165,.84,.44,1);
+		}
+
+		.effect--visible {
+			transition: opacity 1.2s;
+			transition-delay: 7s;
+		}
+	</style>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<!-- historyBack *단일페이지 이용 시삭제필요 -->
+	<a href="../index.html" style="display:inline-block;background:#1abc9c;padding:10px 15px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold;border-radius:15px;position:fixed;top:15px;right:15px;z-index:99999;">INDEX</a>
+	<!-- // historyBack -->
+	<h1>샘플 div * 아래버튼 누를시 보이면서 이동</h1>
+	<div class="example_div_wrap">
+		<div class="effect effect--up"></div>
+		<div class="effect effect--down"></div>
+		<div class="effect effect--left"></div>
+		<div class="effect effect--right"></div>
+	</div>
+
+	<div class="button_wrap">
+		<button>clear</button>
+		<button>up</button>
+		<button>down</button>
+		<button>left</button>
+		<button>right</button>
+	</div>
+	<script>
+		$('.button_wrap button').eq(0).click(function() {
+			$('.example_div_wrap > div').removeClass('effect--active');
+		})
+
+		$('.button_wrap button').eq(1).click(function() {
+			$('.example_div_wrap > div').eq(0).addClass('effect--active');
+			
+		})
+
+		$('.button_wrap button').eq(2).click(function() {
+			$('.example_div_wrap > div').eq(1).addClass('effect--active');
+		})
+
+		$('.button_wrap button').eq(3).click(function() {
+			$('.example_div_wrap > div').eq(2).addClass('effect--active');
+		})
+
+		$('.button_wrap button').eq(4).click(function() {
+			$('.example_div_wrap > div').eq(3).addClass('effect--active');
+		})
+	</script>
+</body>
+</html>
